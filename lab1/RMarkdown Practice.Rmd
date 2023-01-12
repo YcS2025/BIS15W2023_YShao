@@ -1,6 +1,6 @@
 ---
-title: "RMarkdown Practice"
-author: "Yuchen Shao"
+title: "**RMarkdown Practice**"
+author: "_Yuchen Shao_"
 date: "2023-01-11"
 output: html_document
 ---
