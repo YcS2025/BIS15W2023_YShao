@@ -120,13 +120,13 @@ harry_potter_matrix
 ## Using a data matrix
 Once you have a data matrix, you can perform lots of different analyses. For example, you can calculate the total earnings of each movie.
 ```{r}
-global <- rowSums(harry_potter_matrix)
+global <- rowSums(all_harry_potter_matrix_1)
 global
 ```
 
 And even add a new column to reflect this calculation. `cbind()` adds columns.
 ```{r}
-all_harry_potter_matrix <- cbind(harry_potter_matrix, global)
+all_harry_potter_matrix <- cbind(all_harry_potter_matrix_1, global)
 all_harry_potter_matrix
 ```
 
@@ -139,7 +139,8 @@ USearning
 
 2. Add this information to the data matrix. Hint: you are adding a row, not a column.  
 ```{r}
-
+all_harry_potter_matrix_1 <- rbind(harry_potter_matrix, USearning)
+all_harry_potter_matrix_1
 ```
 
 ## A few Extras
