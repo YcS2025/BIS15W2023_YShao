@@ -16,17 +16,18 @@ Make sure to use the formatting conventions of RMarkdown to make your report nea
 
 ## Load the tidyverse
 ```{r message=FALSE, warning=FALSE}
-library(tidyverse)
 install.packages("tidyverse")
+library(tidyverse)
+
 ```
 
 ## Mammals Sleep
 1. For this assignment, we are going to use built-in data on mammal sleep patterns. From which publication are these data taken from? Since the data are built-in you can use the help function in R.
 
-These date are take from the publication called Science
+These date are take from the Proceedings of the National Academy of Sciences.
 ```{r}
 msleep <- readr::read_csv("data/mammals_sleep_allison_cicchetti_1976.csv")
-??msleep
+?msleep
 ```
 
 2. Store these data into a new data frame `sleep`.
@@ -53,7 +54,9 @@ names(sleep)
 
 6. How many herbivores are represented in the data?  
 ```{r}
-
+herbivores <- msleep[,9]
+herbivors_1 <- filter(msleep,herbivores == 5)
+nrow(herbivors_1)
 ```
 
 7. We are interested in two groups; small and large mammals. Let's define small as less than or equal to 1kg body weight and large as greater than or equal to 200kg body weight. Make two new dataframes (large and small) based on these parameters.

@@ -1,4 +1,4 @@
----
+in---
 title: "Lab 2 Intro"
 date: "`r Sys.Date()`"
 output: ioslides_presentation
