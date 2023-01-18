@@ -17,32 +17,38 @@ Make sure to use the formatting conventions of RMarkdown to make your report nea
 ## Load the tidyverse
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
+install.packages("tidyverse")
 ```
 
 ## Mammals Sleep
 1. For this assignment, we are going to use built-in data on mammal sleep patterns. From which publication are these data taken from? Since the data are built-in you can use the help function in R.
-```{r}
 
+These date are take from the publication called Science
+```{r}
+msleep <- readr::read_csv("data/mammals_sleep_allison_cicchetti_1976.csv")
+??msleep
 ```
 
 2. Store these data into a new data frame `sleep`.
 ```{r}
-
+sleep <- data.frame(msleep)
+sleep
 ```
 
 3. What are the dimensions of this data frame (variables and observations)? How do you know? Please show the *code* that you used to determine this below.  
 ```{r}
-
+dim(sleep)
 ```
 
 4. Are there any NAs in the data? How did you determine this? Please show your code.  
 ```{r}
-
+sum(is.na(sleep))
 ```
+There are no NAs in the date
 
 5. Show a list of the column names is this data frame.
 ```{r}
-
+names(sleep)
 ```
 
 6. How many herbivores are represented in the data?  
