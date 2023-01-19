@@ -1,7 +1,7 @@
 ---
 title: "Lab 3 Homework"
 author: "Yuchen Shao"
-date: "2023-01-18"
+date: "2023-01-19"
 output:
   html_document:
     theme: spacelab
@@ -52,13 +52,14 @@ dim(sleep)
 4. Are there any NAs in the data? How did you determine this? Please show your code.  
 
 ```r
-sum(is.na(sleep))
+anyNA(sleep)
 ```
 
 ```
-## [1] 136
+## [1] TRUE
 ```
-Since the result is 136, which is larger than 0,there are some NAS in the data.
+Since the result is true, there are some NAS in the data.
+
 5. Show a list of the column names is this data frame.
 
 ```r

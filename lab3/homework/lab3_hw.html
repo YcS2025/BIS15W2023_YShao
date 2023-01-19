@@ -11,7 +11,7 @@
 
 <meta name="author" content="Yuchen Shao" />
 
-<meta name="date" content="2023-01-18" />
+<meta name="date" content="2023-01-19" />
 
 <title>Lab 3 Homework</title>
 
@@ -376,7 +376,7 @@ display: none;
 
 <h1 class="title toc-ignore">Lab 3 Homework</h1>
 <h4 class="author">Yuchen Shao</h4>
-<h4 class="date">2023-01-18</h4>
+<h4 class="date">2023-01-19</h4>
 
 </div>
 
@@ -423,10 +423,12 @@ used to determine this below.</li>
 <li>Are there any NAs in the data? How did you determine this? Please
 show your code.</li>
 </ol>
-<pre class="r"><code>sum(is.na(sleep))</code></pre>
-<pre><code>## [1] 136</code></pre>
-<p>Since the result is 136, which is larger than 0,there are some NAS in
-the data. 5. Show a list of the column names is this data frame.</p>
+<pre class="r"><code>anyNA(sleep)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>Since the result is true, there are some NAS in the data.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Show a list of the column names is this data frame.</li>
+</ol>
 <pre class="r"><code>names(sleep)</code></pre>
 <pre><code>##  [1] &quot;name&quot;         &quot;genus&quot;        &quot;vore&quot;         &quot;order&quot;        &quot;conservation&quot;
 ##  [6] &quot;sleep_total&quot;  &quot;sleep_rem&quot;    &quot;sleep_cycle&quot;  &quot;awake&quot;        &quot;brainwt&quot;     
