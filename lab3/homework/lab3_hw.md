@@ -18,7 +18,7 @@ Make sure to use the formatting conventions of RMarkdown to make your report nea
 
 ```r
 #install.packages("tidyverse")
-library(tidyverse)
+library("tidyverse")
 ```
 
 ## Mammals Sleep
@@ -26,10 +26,6 @@ library(tidyverse)
 
 ```r
 ?msleep
-```
-
-```
-## 打开httpd帮助服务器… 好了
 ```
 These data are taken from Proceedings of the National Academy of Sciences.
 

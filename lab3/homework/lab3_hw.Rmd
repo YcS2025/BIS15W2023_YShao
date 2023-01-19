@@ -17,7 +17,7 @@ Make sure to use the formatting conventions of RMarkdown to make your report nea
 ## Load the tidyverse
 ```{r message=FALSE, warning=FALSE}
 #install.packages("tidyverse")
-library(tidyverse)
+library("tidyverse")
 ```
 
 ## Mammals Sleep
