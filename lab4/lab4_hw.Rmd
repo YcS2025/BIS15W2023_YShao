@@ -32,23 +32,122 @@ Data: http://datadryad.org/resource/doi:10.5061/dryad.q5j65/1
 
 **1. Load the data into a new object called `homerange`.**
 
+```{r}
+homerange <- readr::read_csv("data/Tamburelloetal_HomeRangeDatabase.csv")
+```
+
+
 **2. Explore the data. Show the dimensions, column names, classes for each variable, and a statistical summary. Keep these as separate code chunks.**  
+
+```{r}
+dim(homerange)
+```
+```{r}
+names(homerange)
+```
+```{r}
+class(homerange)
+```
+```{r}
+summary(homerange)
+```
+
 
 **3. Change the class of the variables `taxon` and `order` to factors and display their levels.**  
 
+```{r}
+homerange$taxon <- as.factor(homerange$taxon)
+```
+```{r}
+homerange$order <- as.factor(homerange$order)
+```
+```{r}
+levels(homerange$taxon)
+```
+```{r}
+levels(homerange$order)
+```
+
+
 **4. What taxa are represented in the `homerange` data frame? Make a new data frame `taxa` that is restricted to taxon, common name, class, order, family, genus, species.**  
+
+the Taxa that represented in the `homerange` data frame are birds, lake fishes, lizards, mammals, marine fishes, river fishes, snakes, tortoises and turtles.
+
+```{r}
+homerange_new <- select(homerange,"taxon","common.name","class","order","family","genus","species")
+homerange_new
+```
 
 **5. The variable `taxon` identifies the large, common name groups of the species represented in `homerange`. Make a table the shows the counts for each of these `taxon`.**  
 
+```{r}
+table(homerange$taxon)
+```
+
+
 **6. The species in `homerange` are also classified into trophic guilds. How many species are represented in each trophic guild.**  
+
+```{r}
+table(homerange$trophic.guild)
+```
+
 
 **7. Make two new data frames, one which is restricted to carnivores and another that is restricted to herbivores.**  
 
-**8. Do herbivores or carnivores have, on average, a larger `mean.hra.m2`? Remove any NAs from the data.**  
+```{r}
+homerange_carnivores<-filter(homerange, trophic.guild == "carnivore")
+homerange_carnivores
+```
+```{r}
+homerange_herbivores<-filter(homerange, trophic.guild == "herbivore")
+homerange_herbivores
+```
+
+
+
+**8. Do herbivores or carnivores have, on average, a larger `mean.hra.m2`? Remove any NAs from the data.** 
+
+```{r}
+mean(homerange_carnivores$mean.hra.m2,na.rm = T)
+```
+```{r}
+mean(homerange_herbivores$mean.hra.m2,na.rm = T)
+```
+
+Herbivores have, on average, a larger `mean.hra.m2`.
+
+
 
 **9. Make a new dataframe `deer` that is limited to the mean mass, log10 mass, family, genus, and species of deer in the database. The family for deer is cervidae. Arrange the data in descending order by log10 mass. Which is the largest deer? What is its common name?**  
 
+```{r}
+deer <- filter(homerange,family=="cervidae")
+deer <- select(deer,"mean.mass.g","log10.mass","family","genus","species")
+deer <- arrange(deer,desc(deer$log10.mass))
+deer
+#homerange_deer <- rename(homerange,log10_mass="log10.mass")
+#homerange_deer
+#deer_name <-filter(homerange_deer,log10_mass == 5.48746,na.rm=TRUE)
+deer_name<-filter(homerange,genus=="alces"&species=="alces")
+deer_name[1,2]
+```
+
+
+
+
 **10. As measured by the data, which snake species has the smallest homerange? Show all of your work, please. Look this species up online and tell me about it!** **Snake is found in taxon column**    
+
+```{r}
+homerange_snakes<-filter(homerange,taxon=="snakes")
+homerange_snakes
+min(homerange_snakes$mean.hra.m2)
+min(homerange_snakes$log10.hra)
+smallest_snake <- rename(homerange_snakes, mean_hra_m2 ="mean.hra.m2")
+smallest_snake
+smallest_snake <-filter(smallest_snake,mean_hra_m2 == 200)
+smallest_snake[1,2]
+```
+
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences.   
