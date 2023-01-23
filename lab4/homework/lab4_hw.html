@@ -11,7 +11,7 @@
 
 <meta name="author" content="Yuchen Shao" />
 
-<meta name="date" content="2023-01-22" />
+<meta name="date" content="2023-01-23" />
 
 <title>Lab 4 Homework</title>
 
@@ -376,7 +376,7 @@ display: none;
 
 <h1 class="title toc-ignore">Lab 4 Homework</h1>
 <h4 class="author">Yuchen Shao</h4>
-<h4 class="date">2023-01-22</h4>
+<h4 class="date">2023-01-23</h4>
 
 </div>
 
@@ -406,7 +406,7 @@ of animal space use. The American Naturalist 186(2):196-211. <a href="http://dx.
 Data: <a href="http://datadryad.org/resource/doi:10.5061/dryad.q5j65/1" class="uri">http://datadryad.org/resource/doi:10.5061/dryad.q5j65/1</a></p>
 <p><strong>1. Load the data into a new object called
 <code>homerange</code>.</strong></p>
-<pre class="r"><code>homerange &lt;- readr::read_csv(&quot;data/Tamburelloetal_HomeRangeDatabase.csv&quot;)</code></pre>
+<pre class="r"><code>homerange &lt;- readr::read_csv(&quot;C:/Users/SYC91/Desktop/BIS15W2023_YShao/lab4/data/Tamburelloetal_HomeRangeDatabase.csv&quot;)</code></pre>
 <pre><code>## Rows: 569 Columns: 24
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -633,15 +633,17 @@ deer</code></pre>
 ## 10      24050.       4.38 cervidae capreolus  capreolus  
 ## 11      13500.       4.13 cervidae muntiacus  reevesi    
 ## 12       7500.       3.88 cervidae pudu       puda</code></pre>
-<pre class="r"><code>#homerange_deer &lt;- rename(homerange,log10_mass=&quot;log10.mass&quot;)
-#homerange_deer
-#deer_name &lt;-filter(homerange_deer,log10_mass == 5.48746,na.rm=TRUE)
-deer_name&lt;-filter(homerange,genus==&quot;alces&quot;&amp;species==&quot;alces&quot;)
-deer_name[1,2]</code></pre>
-<pre><code>## # A tibble: 1 × 1
-##   common.name
-##   &lt;chr&gt;      
-## 1 moose</code></pre>
+<pre class="r"><code>filter(homerange,family==&quot;cervidae&quot; &amp; genus==&quot;alces&quot;)</code></pre>
+<pre><code>## # A tibble: 1 × 24
+##   taxon   commo…¹ class order family genus species prima…² N     mean.…³ log10…⁴
+##   &lt;fct&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;fct&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 mammals moose   mamm… arti… cervi… alces alces   teleme… &lt;NA&gt;  307227.    5.49
+## # … with 13 more variables: alternative.mass.reference &lt;chr&gt;,
+## #   mean.hra.m2 &lt;dbl&gt;, log10.hra &lt;dbl&gt;, hra.reference &lt;chr&gt;, realm &lt;chr&gt;,
+## #   thermoregulation &lt;chr&gt;, locomotion &lt;chr&gt;, trophic.guild &lt;chr&gt;,
+## #   dimension &lt;dbl&gt;, preymass &lt;dbl&gt;, log10.preymass &lt;dbl&gt;, PPMR &lt;dbl&gt;,
+## #   prey.size.reference &lt;chr&gt;, and abbreviated variable names ¹​common.name,
+## #   ²​primarymethod, ³​mean.mass.g, ⁴​log10.mass</code></pre>
 <p><strong>10. As measured by the data, which snake species has the
 smallest homerange? Show all of your work, please. Look this species up
 online and tell me about it!</strong> <strong>Snake is found in taxon
@@ -692,12 +694,17 @@ smallest_snake</code></pre>
 ## #   dimension &lt;dbl&gt;, preymass &lt;dbl&gt;, log10.preymass &lt;dbl&gt;, PPMR &lt;dbl&gt;,
 ## #   prey.size.reference &lt;chr&gt;, and abbreviated variable names ¹​common.name,
 ## #   ²​primarymethod, ³​mean.mass.g, ⁴​log10.mass</code></pre>
-<pre class="r"><code>smallest_snake &lt;-filter(smallest_snake,mean_hra_m2 == 200)
-smallest_snake[1,2]</code></pre>
-<pre><code>## # A tibble: 1 × 1
-##   common.name        
-##   &lt;chr&gt;              
-## 1 namaqua dwarf adder</code></pre>
+<pre class="r"><code>filter(smallest_snake,mean_hra_m2 == 200)</code></pre>
+<pre><code>## # A tibble: 1 × 24
+##   taxon  common…¹ class order family genus species prima…² N     mean.…³ log10…⁴
+##   &lt;fct&gt;  &lt;chr&gt;    &lt;chr&gt; &lt;fct&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 snakes namaqua… rept… squa… viper… bitis schnei… teleme… 11       17.0    1.23
+## # … with 13 more variables: alternative.mass.reference &lt;chr&gt;,
+## #   mean_hra_m2 &lt;dbl&gt;, log10.hra &lt;dbl&gt;, hra.reference &lt;chr&gt;, realm &lt;chr&gt;,
+## #   thermoregulation &lt;chr&gt;, locomotion &lt;chr&gt;, trophic.guild &lt;chr&gt;,
+## #   dimension &lt;dbl&gt;, preymass &lt;dbl&gt;, log10.preymass &lt;dbl&gt;, PPMR &lt;dbl&gt;,
+## #   prey.size.reference &lt;chr&gt;, and abbreviated variable names ¹​common.name,
+## #   ²​primarymethod, ³​mean.mass.g, ⁴​log10.mass</code></pre>
 </div>
 <div id="push-your-final-code-to-github" class="section level2">
 <h2>Push your final code to GitHub!</h2>

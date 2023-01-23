@@ -1,7 +1,7 @@
 ---
 title: "Lab 4 Homework"
 author: "Yuchen Shao"
-date: "2023-01-22"
+date: "2023-01-23"
 output:
   html_document:
     theme: spacelab
@@ -33,7 +33,7 @@ Data: http://datadryad.org/resource/doi:10.5061/dryad.q5j65/1
 
 
 ```r
-homerange <- readr::read_csv("data/Tamburelloetal_HomeRangeDatabase.csv")
+homerange <- readr::read_csv("C:/Users/SYC91/Desktop/BIS15W2023_YShao/lab4/data/Tamburelloetal_HomeRangeDatabase.csv")
 ```
 
 ```
@@ -364,18 +364,20 @@ deer
 ```
 
 ```r
-#homerange_deer <- rename(homerange,log10_mass="log10.mass")
-#homerange_deer
-#deer_name <-filter(homerange_deer,log10_mass == 5.48746,na.rm=TRUE)
-deer_name<-filter(homerange,genus=="alces"&species=="alces")
-deer_name[1,2]
+filter(homerange,family=="cervidae" & genus=="alces")
 ```
 
 ```
-## # A tibble: 1 × 1
-##   common.name
-##   <chr>      
-## 1 moose
+## # A tibble: 1 × 24
+##   taxon   commo…¹ class order family genus species prima…² N     mean.…³ log10…⁴
+##   <fct>   <chr>   <chr> <fct> <chr>  <chr> <chr>   <chr>   <chr>   <dbl>   <dbl>
+## 1 mammals moose   mamm… arti… cervi… alces alces   teleme… <NA>  307227.    5.49
+## # … with 13 more variables: alternative.mass.reference <chr>,
+## #   mean.hra.m2 <dbl>, log10.hra <dbl>, hra.reference <chr>, realm <chr>,
+## #   thermoregulation <chr>, locomotion <chr>, trophic.guild <chr>,
+## #   dimension <dbl>, preymass <dbl>, log10.preymass <dbl>, PPMR <dbl>,
+## #   prey.size.reference <chr>, and abbreviated variable names ¹​common.name,
+## #   ²​primarymethod, ³​mean.mass.g, ⁴​log10.mass
 ```
 
 
@@ -455,15 +457,20 @@ smallest_snake
 ```
 
 ```r
-smallest_snake <-filter(smallest_snake,mean_hra_m2 == 200)
-smallest_snake[1,2]
+filter(smallest_snake,mean_hra_m2 == 200)
 ```
 
 ```
-## # A tibble: 1 × 1
-##   common.name        
-##   <chr>              
-## 1 namaqua dwarf adder
+## # A tibble: 1 × 24
+##   taxon  common…¹ class order family genus species prima…² N     mean.…³ log10…⁴
+##   <fct>  <chr>    <chr> <fct> <chr>  <chr> <chr>   <chr>   <chr>   <dbl>   <dbl>
+## 1 snakes namaqua… rept… squa… viper… bitis schnei… teleme… 11       17.0    1.23
+## # … with 13 more variables: alternative.mass.reference <chr>,
+## #   mean_hra_m2 <dbl>, log10.hra <dbl>, hra.reference <chr>, realm <chr>,
+## #   thermoregulation <chr>, locomotion <chr>, trophic.guild <chr>,
+## #   dimension <dbl>, preymass <dbl>, log10.preymass <dbl>, PPMR <dbl>,
+## #   prey.size.reference <chr>, and abbreviated variable names ¹​common.name,
+## #   ²​primarymethod, ³​mean.mass.g, ⁴​log10.mass
 ```
 
 
