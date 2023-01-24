@@ -422,14 +422,6 @@ min(homerange_snakes$mean.hra.m2)
 ```
 
 ```r
-min(homerange_snakes$log10.hra)
-```
-
-```
-## [1] 2.30103
-```
-
-```r
 smallest_snake <- rename(homerange_snakes, mean_hra_m2 ="mean.hra.m2")
 smallest_snake
 ```
