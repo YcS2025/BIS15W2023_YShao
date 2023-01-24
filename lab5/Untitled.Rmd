@@ -1,0 +1,49 @@
+---
+title: "Untitled"
+output: html_document
+date: "2023-01-24"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("tidyverse")
+```
+
+```{r}
+bison<- read_csv("data/bison.csv")
+```
+```{r}
+dim(bison)
+```
+```{r}
+str(bison)
+anyNA(bison)
+```
+```{r}
+new_bison <- select(bison,"animal_code","animal_sex","animal_weight","animal_yob")
+new_bison
+```
+```{r}
+decade_date<-filter(bison,between(animal_yob,1979,1990))
+#anyNA(decade_date)
+decade_date
+```
+```{r}
+table(decade_date$animal_sex)
+```
+```{r}
+decade_male<-filter(decade_date,animal_sex=="M")
+mean(decade_male$animal_weight)
+```
+```{r}
+decade_female<-filter(decade_date,animal_sex=="F")
+mean(decade_female$animal_weight)
+```
+
+
+
+
+
+
+
+
