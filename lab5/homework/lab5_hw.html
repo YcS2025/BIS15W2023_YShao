@@ -11,7 +11,7 @@
 
 <meta name="author" content="Yuchen Shao" />
 
-<meta name="date" content="2023-01-25" />
+<meta name="date" content="2023-01-26" />
 
 <title>dplyr Superhero</title>
 
@@ -1511,7 +1511,7 @@ border-radius: 0px;
 
 <h1 class="title toc-ignore">dplyr Superhero</h1>
 <h4 class="author">Yuchen Shao</h4>
-<h4 class="date">2023-01-25</h4>
+<h4 class="date">2023-01-26</h4>
 
 </div>
 
@@ -2226,18 +2226,25 @@ durability, and super strength?</li>
 <ol start="15" style="list-style-type: decimal">
 <li>Pick your favorite superhero and let’s see their powers!</li>
 </ol>
-<pre class="r"><code>filter(superhero_powers,hero_names==&quot;Superman&quot;)</code></pre>
-<pre><code>## # A tibble: 1 × 168
-##   hero_…¹ agility accel…² lante…³ dimen…⁴ cold_…⁵ durab…⁶ stealth energ…⁷ flight
-##   &lt;chr&gt;   &lt;lgl&gt;   &lt;lgl&gt;   &lt;lgl&gt;   &lt;lgl&gt;   &lt;lgl&gt;   &lt;lgl&gt;   &lt;lgl&gt;   &lt;lgl&gt;   &lt;lgl&gt; 
-## 1 Superm… TRUE    TRUE    FALSE   FALSE   TRUE    TRUE    FALSE   TRUE    TRUE  
-## # … with 158 more variables: danger_sense &lt;lgl&gt;, underwater_breathing &lt;lgl&gt;,
-## #   marksmanship &lt;lgl&gt;, weapons_master &lt;lgl&gt;, power_augmentation &lt;lgl&gt;,
-## #   animal_attributes &lt;lgl&gt;, longevity &lt;lgl&gt;, intelligence &lt;lgl&gt;,
-## #   super_strength &lt;lgl&gt;, cryokinesis &lt;lgl&gt;, telepathy &lt;lgl&gt;,
-## #   energy_armor &lt;lgl&gt;, energy_blasts &lt;lgl&gt;, duplication &lt;lgl&gt;,
-## #   size_changing &lt;lgl&gt;, density_control &lt;lgl&gt;, stamina &lt;lgl&gt;,
-## #   astral_travel &lt;lgl&gt;, audio_control &lt;lgl&gt;, dexterity &lt;lgl&gt;, …</code></pre>
+<pre class="r"><code>superhero_powers %&gt;% 
+  filter(hero_names==&quot;Superman&quot;) %&gt;% 
+  select_if(all_vars(.==&quot;TRUE&quot;))</code></pre>
+<pre><code>## Warning: The `.predicate` argument of `select_if()` can&#39;t contain quosures. as of dplyr
+## 0.8.3.
+## ℹ Please use a one-sided formula, a function, or a function name.
+## ℹ The deprecated feature was likely used in the base package.
+##   Please report the issue to the authors.</code></pre>
+<pre><code>## # A tibble: 1 × 29
+##   agility accel…¹ cold_…² durab…³ energ…⁴ flight marks…⁵ longe…⁶ intel…⁷ super…⁸
+##   &lt;lgl&gt;   &lt;lgl&gt;   &lt;lgl&gt;   &lt;lgl&gt;   &lt;lgl&gt;   &lt;lgl&gt;  &lt;lgl&gt;   &lt;lgl&gt;   &lt;lgl&gt;   &lt;lgl&gt;  
+## 1 TRUE    TRUE    TRUE    TRUE    TRUE    TRUE   TRUE    TRUE    TRUE    TRUE   
+## # … with 19 more variables: stamina &lt;lgl&gt;, super_speed &lt;lgl&gt;,
+## #   enhanced_senses &lt;lgl&gt;, energy_beams &lt;lgl&gt;, jump &lt;lgl&gt;,
+## #   enhanced_memory &lt;lgl&gt;, reflexes &lt;lgl&gt;, invulnerability &lt;lgl&gt;,
+## #   fire_resistance &lt;lgl&gt;, enhanced_hearing &lt;lgl&gt;, hypnokinesis &lt;lgl&gt;,
+## #   enhanced_sight &lt;lgl&gt;, heat_resistance &lt;lgl&gt;, enhanced_smell &lt;lgl&gt;,
+## #   vision_telescopic &lt;lgl&gt;, vision_microscopic &lt;lgl&gt;, super_breath &lt;lgl&gt;,
+## #   vision_heat &lt;lgl&gt;, vision_x_ray &lt;lgl&gt;, and abbreviated variable names …</code></pre>
 </div>
 <div id="push-your-final-code-to-github" class="section level2">
 <h2>Push your final code to GitHub!</h2>

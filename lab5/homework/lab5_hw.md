@@ -1,7 +1,7 @@
 ---
 title: "dplyr Superhero"
 author: "Yuchen Shao"
-date: "2023-01-25"
+date: "2023-01-26"
 output:
   html_document: 
     theme: spacelab
@@ -818,21 +818,31 @@ filter(superhero_powers,accelerated_healing=="TRUE"&durability=="TRUE"&super_str
 15. Pick your favorite superhero and let's see their powers!
 
 ```r
-filter(superhero_powers,hero_names=="Superman")
+superhero_powers %>% 
+  filter(hero_names=="Superman") %>% 
+  select_if(all_vars(.=="TRUE"))
 ```
 
 ```
-## # A tibble: 1 × 168
-##   hero_…¹ agility accel…² lante…³ dimen…⁴ cold_…⁵ durab…⁶ stealth energ…⁷ flight
-##   <chr>   <lgl>   <lgl>   <lgl>   <lgl>   <lgl>   <lgl>   <lgl>   <lgl>   <lgl> 
-## 1 Superm… TRUE    TRUE    FALSE   FALSE   TRUE    TRUE    FALSE   TRUE    TRUE  
-## # … with 158 more variables: danger_sense <lgl>, underwater_breathing <lgl>,
-## #   marksmanship <lgl>, weapons_master <lgl>, power_augmentation <lgl>,
-## #   animal_attributes <lgl>, longevity <lgl>, intelligence <lgl>,
-## #   super_strength <lgl>, cryokinesis <lgl>, telepathy <lgl>,
-## #   energy_armor <lgl>, energy_blasts <lgl>, duplication <lgl>,
-## #   size_changing <lgl>, density_control <lgl>, stamina <lgl>,
-## #   astral_travel <lgl>, audio_control <lgl>, dexterity <lgl>, …
+## Warning: The `.predicate` argument of `select_if()` can't contain quosures. as of dplyr
+## 0.8.3.
+## ℹ Please use a one-sided formula, a function, or a function name.
+## ℹ The deprecated feature was likely used in the base package.
+##   Please report the issue to the authors.
+```
+
+```
+## # A tibble: 1 × 29
+##   agility accel…¹ cold_…² durab…³ energ…⁴ flight marks…⁵ longe…⁶ intel…⁷ super…⁸
+##   <lgl>   <lgl>   <lgl>   <lgl>   <lgl>   <lgl>  <lgl>   <lgl>   <lgl>   <lgl>  
+## 1 TRUE    TRUE    TRUE    TRUE    TRUE    TRUE   TRUE    TRUE    TRUE    TRUE   
+## # … with 19 more variables: stamina <lgl>, super_speed <lgl>,
+## #   enhanced_senses <lgl>, energy_beams <lgl>, jump <lgl>,
+## #   enhanced_memory <lgl>, reflexes <lgl>, invulnerability <lgl>,
+## #   fire_resistance <lgl>, enhanced_hearing <lgl>, hypnokinesis <lgl>,
+## #   enhanced_sight <lgl>, heat_resistance <lgl>, enhanced_smell <lgl>,
+## #   vision_telescopic <lgl>, vision_microscopic <lgl>, super_breath <lgl>,
+## #   vision_heat <lgl>, vision_x_ray <lgl>, and abbreviated variable names …
 ```
 
 ## Push your final code to GitHub!

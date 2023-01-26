@@ -149,7 +149,9 @@ filter(superhero_powers,accelerated_healing=="TRUE"&durability=="TRUE"&super_str
 ## Your Favorite
 15. Pick your favorite superhero and let's see their powers!
 ```{r}
-filter(superhero_powers,hero_names=="Superman")
+superhero_powers %>% 
+  filter(hero_names=="Superman") %>% 
+  select_if(all_vars(.=="TRUE"))
 ```
 
 ## Push your final code to GitHub!
