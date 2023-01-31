@@ -120,7 +120,7 @@ harry_potter_matrix
 ## Using a data matrix
 Once you have a data matrix, you can perform lots of different analyses. For example, you can calculate the total earnings of each movie.
 ```{r}
-global <- rowSums(all_harry_potter_matrix_1)
+global <- rowSums(harry_potter_matrix)
 global
 ```
 

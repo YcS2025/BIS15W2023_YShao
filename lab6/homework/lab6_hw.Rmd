@@ -33,12 +33,16 @@ fisheries <- readr::read_csv(file = "data/FAO_1950to2012_111914.csv")
 
 1. Do an exploratory analysis of the data (your choice). What are the names of the variables, what are the dimensions, are there any NA's, what are the classes of the variables?  
 ```{r}
-
+glimpse(fisheries)
 ```
 
 2. Use `janitor` to rename the columns and make them easier to use. As part of this cleaning step, change `country`, `isscaap_group_number`, `asfis_species_number`, and `fao_major_fishing_area` to data class factor. 
 ```{r}
-
+fisheries <- 
+  fisheries %>%
+  janitor::clean_names()%>%
+  mutate(across(c(country, isscaap_group_number, asfis_species_number, fao_major_fishing_area), as_factor))
+fisheries
 ```
 
 ```{r}
@@ -63,12 +67,14 @@ We need to deal with the years because they are being treated as characters and 
 
 3. How many countries are represented in the data? Provide a count and list their names.
 ```{r}
-
+fisheries%>%
+  count(country)
 ```
 
 4. Refocus the data only to include country, isscaap_taxonomic_group, asfis_species_name, asfis_species_number, year, catch.
 ```{r}
-
+fisheries%>%
+  select(-common_name,-isscaap_group_number,-fao_major_fishing_area,-measure)
 ```
 
 5. Based on the asfis_species_number, how many distinct fish species were caught as part of these data?
@@ -88,7 +94,13 @@ We need to deal with the years because they are being treated as characters and 
 
 8. Which five countries caught the most cephalopods between 2008-2012?
 ```{r}
-
+fisheries_tidy %>%
+  group_by(country) %>%
+  filter(isscaap_taxonomic_group=="Squids, cuttlefishes, octopuses") %>%
+  filter(between(year, 2008, 2012)) %>%
+  summarise(cephalopods_catch=sum(catch, na.rm=T)) %>%
+  arrange(desc(cephalopods_catch)) %>%
+  head(n=5)
 ```
 
 ```{r}
@@ -97,7 +109,11 @@ We need to deal with the years because they are being treated as characters and 
 
 9. Which species had the highest catch total between 2008-2012? (hint: Osteichthyes is not a species)
 ```{r}
-
+fisheries_tidy_focused %>% 
+  filter(year==2000) %>%
+  group_by(country) %>% 
+  summarize(catch_total=sum(catch, na.rm=T)) %>% 
+  arrange(desc(catch_total))
 ```
 
 10. Use the data to do at least one analysis of your choice.
