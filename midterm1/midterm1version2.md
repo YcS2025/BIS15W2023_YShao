@@ -169,34 +169,14 @@ Problem 5. (4 points) Using the `slice_max()` or `slice_min()` function describe
 
 ```r
 ecosphere%>%
-  group_by(order)%>%
-  slice_max(winter_range_area)
+  slice_max(winter_range_area,n=1)
 ```
 
 ```
-## # A tibble: 19 × 21
-## # Groups:   order [19]
-##    order    family commo…¹ scien…² diet  life_…³ habitat urban…⁴ migra…⁵ log10…⁶
-##    <chr>    <chr>  <chr>   <chr>   <chr> <chr>   <chr>   <chr>   <chr>     <dbl>
-##  1 Anserif… Anati… Tufted… Aythya… Vege… Middle  Wetland Yes     Long       2.85
-##  2 Apodifo… Apodi… White-… Aerona… Inve… Short   Various No      Short      1.49
-##  3 Caprimu… Capri… Common… Nyctid… Inve… Middle  Shrubl… No      Reside…    1.76
-##  4 Charadr… Sterc… Pomari… Sterco… Vert… Middle  Ocean   No      Modera…    2.84
-##  5 Ciconii… Ardei… Cattle… Bubulc… Inve… Middle  Wetland Yes     Short      2.58
-##  6 Columbi… Colum… Ruddy … Columb… Seed  Short   <NA>    Yes     Reside…    1.66
-##  7 Coracii… Alced… Green … Chloro… Vert… Short   Wetland No      Reside…    1.57
-##  8 Cuculif… Croto… Smooth… Crotop… Inve… Short   Shrubl… Yes     Reside…    2.04
-##  9 Falconi… Falco… Peregr… Falco … Vert… Middle  Various Yes     Short      2.88
-## 10 Gallifo… Tetra… Ruffed… Bonasa… Vege… Short   Woodla… No      Reside…    2.73
-## 11 Gaviifo… Gavii… Common… Gavia … Vert… Short   Wetland No      Modera…    3.7 
-## 12 Gruifor… Ralli… Purple… Porphy… Omni… Middle  Wetland No      Short      2.32
-## 13 Passeri… Passe… House … Passer… Seed  Middle  <NA>    Yes     Reside…    1.42
-## 14 Picifor… Picid… Hairy … Picoid… Omni… Middle  Woodla… Yes     Reside…    1.78
-## 15 Podicip… Podic… Pied-b… Podily… Inve… Short   Wetland No      Short      2.62
-## 16 Procell… Proce… Sooty … Puffin… Vert… Long    Ocean   No      Long       2.9 
-## 17 Psittac… Psitt… Rose-r… Psitta… Fruit Middle  <NA>    Yes     Reside…    2.11
-## 18 Strigif… Tyton… Barn O… Tyto a… Vert… Long    Various Yes     Withdr…    2.61
-## 19 Trogoni… Trogo… Elegan… Trogon… Omni… Short   Woodla… No      Short      1.85
+## # A tibble: 1 × 21
+##   order     family commo…¹ scien…² diet  life_…³ habitat urban…⁴ migra…⁵ log10…⁶
+##   <chr>     <chr>  <chr>   <chr>   <chr> <chr>   <chr>   <chr>   <chr>     <dbl>
+## 1 Procella… Proce… Sooty … Puffin… Vert… Long    Ocean   No      Long        2.9
 ## # … with 11 more variables: mean_eggs_per_clutch <dbl>,
 ## #   mean_age_at_sexual_maturity <dbl>, population_size <dbl>,
 ## #   winter_range_area <dbl>, range_in_cbc <dbl>, strata <dbl>, circles <dbl>,
@@ -209,34 +189,14 @@ ecosphere%>%
 
 ```r
 ecosphere%>%
-  group_by(order)%>%
-  slice_min(winter_range_area)
+  slice_min(winter_range_area,n=1)
 ```
 
 ```
-## # A tibble: 19 × 21
-## # Groups:   order [19]
-##    order    family commo…¹ scien…² diet  life_…³ habitat urban…⁴ migra…⁵ log10…⁶
-##    <chr>    <chr>  <chr>   <chr>   <chr> <chr>   <chr>   <chr>   <chr>     <dbl>
-##  1 Anserif… Anati… Mute S… Cygnus… Vege… Middle  Wetland Yes     Reside…    4.03
-##  2 Apodifo… Troch… Allen'… Selasp… Nect… Short   Shrubl… Yes     Modera…    0.53
-##  3 Caprimu… Capri… Chuck-… Caprim… Inve… Middle  Woodla… No      Short      2.04
-##  4 Charadr… Larid… Mew Gu… Larus … Inve… Long    Ocean   No      Short      2.62
-##  5 Ciconii… Phala… Great … Phalac… Vert… Middle  Ocean   No      Short      3.4 
-##  6 Columbi… Colum… White-… Patagi… Seed  Middle  Woodla… No      Reside…    2.38
-##  7 Coracii… Alced… Belted… Megace… Vert… Short   Wetland No      Short      2.23
-##  8 Cuculif… Croto… Groove… Crotop… Inve… Short   Shrubl… No      Withdr…    1.91
-##  9 Falconi… Catha… Califo… Gymnog… Vert… Long    Various No      Reside…    3.93
-## 10 Gallifo… Odont… Mounta… Oreort… Seed  Short   Shrubl… No      Reside…    2.36
-## 11 Gaviifo… Gavii… Yellow… Gavia … Vert… Middle  Wetland No      Modera…    3.69
-## 12 Gruifor… Gruid… Whoopi… Grus a… Inve… Middle  Wetland No      Modera…    3.77
-## 13 Passeri… Alaud… Skylark Alauda… Seed  Short   Grassl… No      Reside…    1.57
-## 14 Picifor… Picid… Nuttal… Picoid… Inve… Middle  Woodla… No      Reside…    1.58
-## 15 Podicip… Podic… Red-ne… Podice… Inve… Short   Wetland No      Modera…    3.01
-## 16 Procell… Proce… Northe… Fulmar… Vert… Long    Ocean   No      Short      2.79
-## 17 Psittac… Psitt… Red-cr… Amazon… Fruit Middle  <NA>    Yes     Reside…    2.5 
-## 18 Strigif… Strig… Whiske… Megasc… Vert… Short   Woodla… No      Reside…    1.96
-## 19 Trogoni… Trogo… Elegan… Trogon… Omni… Short   Woodla… No      Short      1.85
+## # A tibble: 1 × 21
+##   order     family commo…¹ scien…² diet  life_…³ habitat urban…⁴ migra…⁵ log10…⁶
+##   <chr>     <chr>  <chr>   <chr>   <chr> <chr>   <chr>   <chr>   <chr>     <dbl>
+## 1 Passerif… Alaud… Skylark Alauda… Seed  Short   Grassl… No      Reside…    1.57
 ## # … with 11 more variables: mean_eggs_per_clutch <dbl>,
 ## #   mean_age_at_sexual_maturity <dbl>, population_size <dbl>,
 ## #   winter_range_area <dbl>, range_in_cbc <dbl>, strata <dbl>, circles <dbl>,
