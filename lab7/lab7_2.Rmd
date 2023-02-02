@@ -60,7 +60,7 @@ msleep %>%
 
 This is better, but we still don't have any idea of where those NA's are in our data. With such limited information, it would be hard to determine if the issue was systemic or isolated to a single variable. In order to do this, we can apply `is.na()` to each variable of interest- which would be very slow!
 ```{r}
-msleep %>% 
+msleep %>%
   summarize(number_nas = sum(is.na(conservation)))
 ```
 
@@ -88,17 +88,19 @@ amniota <- readr::read_csv("data/amniota.csv")
 ```
 
 ```{r}
-
+summary(amniota)
 ```
 
 2. Use one of the tools explained above to summarize NA's in the data.
 ```{r}
-
+amniota%>%
+  summarise(num_na=sum(maximum_longevity_y==-999))
 ```
 
 3. What's going on here? Try using the `hist` function on one or more of the continuous variables.
 ```{r}
 
+  hist(amniota$adult_body_mass_g)
 ```
 
 4. Given that we know that the output of #2 is wrong, what do you think is the best approach for dealing with NA's in the `amniote` data? How are they represented?  
@@ -159,17 +161,19 @@ life_history <- read_csv("data/mammal_lifehistories_v2.csv")
 
 1. Do you see any NA's? Try using naniar.
 ```{r}
-
+naniar::miss_var_summary(life_history)
 ```
 
 2. Does this result seem likely? How are NA's represented in the data?
 ```{r}
-
+summary(life_history)
 ```
 
 3. Replace the placeholder values with NA and recheck.
 ```{r}
-
+life_history_tide<-life_history%>%
+  na_if("-999")
+naniar::miss_var_summary(life_history_tide)
 ```
 
 ## Wrap-up  
