@@ -46,14 +46,15 @@ glimpse(ecosphere)
 
 Problem 3. (2 points) How many distinct orders of birds are represented in the data?
 ```{r}
-tabyl(ecosphere,order)
+ecosphere%>%
+  summarise(num_order=n_distinct(order))
 ```
 
 Problem 4. (2 points) Which habitat has the highest diversity (number of species) in the data?
 ```{r}
 ecosphere%>%
-  group_by(habitat)%>%
-  summarise(species=n_distinct(scientific_name))
+  count(habitat)%>%
+  arrange(-n)
 ```
 
 Run the code below to learn about the `slice` function. Look specifically at the examples (at the bottom) for `slice_max()` and `slice_min()`. If you are still unsure, try looking up examples online (https://rpubs.com/techanswers88/dplyr-slice). Use this new function to answer question 5 below.

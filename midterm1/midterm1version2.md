@@ -1,7 +1,7 @@
 ---
 title: "Midterm 1"
 author: "Yuchen Shao"
-date: "2023-01-31"
+date: "2023-02-02"
 output:
   html_document: 
     theme: spacelab
@@ -112,51 +112,36 @@ glimpse(ecosphere)
 Problem 3. (2 points) How many distinct orders of birds are represented in the data?
 
 ```r
-tabyl(ecosphere,order)
+ecosphere%>%
+  summarise(num_order=n_distinct(order))
 ```
 
 ```
-##              order   n     percent
-##       Anseriformes  44 0.079854809
-##        Apodiformes  15 0.027223230
-##   Caprimulgiformes   5 0.009074410
-##    Charadriiformes  81 0.147005445
-##      Ciconiiformes  29 0.052631579
-##      Columbiformes  11 0.019963702
-##      Coraciiformes   3 0.005444646
-##       Cuculiformes   3 0.005444646
-##      Falconiformes  31 0.056261343
-##        Galliformes  21 0.038112523
-##        Gaviiformes   4 0.007259528
-##         Gruiformes  12 0.021778584
-##      Passeriformes 237 0.430127042
-##         Piciformes  22 0.039927405
-##   Podicipediformes   6 0.010889292
-##  Procellariiformes   4 0.007259528
-##     Psittaciformes   6 0.010889292
-##       Strigiformes  16 0.029038113
-##      Trogoniformes   1 0.001814882
+## # A tibble: 1 × 1
+##   num_order
+##       <int>
+## 1        19
 ```
 
 Problem 4. (2 points) Which habitat has the highest diversity (number of species) in the data?
 
 ```r
 ecosphere%>%
-  group_by(habitat)%>%
-  summarise(species=n_distinct(scientific_name))
+  count(habitat)%>%
+  arrange(-n)
 ```
 
 ```
 ## # A tibble: 7 × 2
-##   habitat   species
-##   <chr>       <int>
-## 1 Grassland      36
-## 2 Ocean          44
-## 3 Shrubland      82
-## 4 Various        45
-## 5 Wetland       153
-## 6 Woodland      177
-## 7 <NA>           14
+##   habitat       n
+##   <chr>     <int>
+## 1 Woodland    177
+## 2 Wetland     153
+## 3 Shrubland    82
+## 4 Various      45
+## 5 Ocean        44
+## 6 Grassland    36
+## 7 <NA>         14
 ```
 
 Run the code below to learn about the `slice` function. Look specifically at the examples (at the bottom) for `slice_max()` and `slice_min()`. If you are still unsure, try looking up examples online (https://rpubs.com/techanswers88/dplyr-slice). Use this new function to answer question 5 below.

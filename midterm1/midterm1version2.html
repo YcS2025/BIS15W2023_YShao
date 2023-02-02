@@ -11,7 +11,7 @@
 
 <meta name="author" content="Yuchen Shao" />
 
-<meta name="date" content="2023-01-31" />
+<meta name="date" content="2023-02-02" />
 
 <title>Midterm 1</title>
 
@@ -382,7 +382,7 @@ pre code {
 
 <h1 class="title toc-ignore">Midterm 1</h1>
 <h4 class="author">Yuchen Shao</h4>
-<h4 class="date">2023-01-31</h4>
+<h4 class="date">2023-02-02</h4>
 
 </div>
 
@@ -475,42 +475,27 @@ data.</p>
 ## $ upper_95_percent_ci         &lt;dbl&gt; 1.055, 1.009, 1.104, 1.041, 1.036, 1.243, …</code></pre>
 <p>Problem 3. (2 points) How many distinct orders of birds are
 represented in the data?</p>
-<pre class="r"><code>tabyl(ecosphere,order)</code></pre>
-<pre><code>##              order   n     percent
-##       Anseriformes  44 0.079854809
-##        Apodiformes  15 0.027223230
-##   Caprimulgiformes   5 0.009074410
-##    Charadriiformes  81 0.147005445
-##      Ciconiiformes  29 0.052631579
-##      Columbiformes  11 0.019963702
-##      Coraciiformes   3 0.005444646
-##       Cuculiformes   3 0.005444646
-##      Falconiformes  31 0.056261343
-##        Galliformes  21 0.038112523
-##        Gaviiformes   4 0.007259528
-##         Gruiformes  12 0.021778584
-##      Passeriformes 237 0.430127042
-##         Piciformes  22 0.039927405
-##   Podicipediformes   6 0.010889292
-##  Procellariiformes   4 0.007259528
-##     Psittaciformes   6 0.010889292
-##       Strigiformes  16 0.029038113
-##      Trogoniformes   1 0.001814882</code></pre>
+<pre class="r"><code>ecosphere%&gt;%
+  summarise(num_order=n_distinct(order))</code></pre>
+<pre><code>## # A tibble: 1 × 1
+##   num_order
+##       &lt;int&gt;
+## 1        19</code></pre>
 <p>Problem 4. (2 points) Which habitat has the highest diversity (number
 of species) in the data?</p>
 <pre class="r"><code>ecosphere%&gt;%
-  group_by(habitat)%&gt;%
-  summarise(species=n_distinct(scientific_name))</code></pre>
+  count(habitat)%&gt;%
+  arrange(-n)</code></pre>
 <pre><code>## # A tibble: 7 × 2
-##   habitat   species
-##   &lt;chr&gt;       &lt;int&gt;
-## 1 Grassland      36
-## 2 Ocean          44
-## 3 Shrubland      82
-## 4 Various        45
-## 5 Wetland       153
-## 6 Woodland      177
-## 7 &lt;NA&gt;           14</code></pre>
+##   habitat       n
+##   &lt;chr&gt;     &lt;int&gt;
+## 1 Woodland    177
+## 2 Wetland     153
+## 3 Shrubland    82
+## 4 Various      45
+## 5 Ocean        44
+## 6 Grassland    36
+## 7 &lt;NA&gt;         14</code></pre>
 <p>Run the code below to learn about the <code>slice</code> function.
 Look specifically at the examples (at the bottom) for
 <code>slice_max()</code> and <code>slice_min()</code>. If you are still
