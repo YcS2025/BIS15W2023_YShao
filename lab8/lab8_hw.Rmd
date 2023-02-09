@@ -96,8 +96,7 @@ sydneybeaches_long_1
 7. What is the average `enterococci_cfu_100ml` by year for each beach. Think about which data you will use- long or wide.
 ```{r}
 sydneybeaches_average<-sydneybeaches_long_1%>%
-  unite(site_year,c(site,year))%>%
-  group_by(site_year)%>%
+  group_by(site,year)%>%
   summarise(average=mean(enterococci_cfu_100ml,na.rm = T))
 sydneybeaches_average
 ```
@@ -106,7 +105,6 @@ sydneybeaches_average
 8. Make the output from question 7 easier to read by pivoting it to wide format.
 ```{r}
 sydneybeaches_average_wide<-sydneybeaches_average%>%
-  separate(site_year, into= c("site", "year"), sep = "_")%>%
   pivot_wider(names_from = "year",
               values_from = "average")
 sydneybeaches_average_wide

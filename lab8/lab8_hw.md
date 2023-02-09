@@ -237,26 +237,34 @@ sydneybeaches_long_1
 
 ```r
 sydneybeaches_average<-sydneybeaches_long_1%>%
-  unite(site_year,c(site,year))%>%
-  group_by(site_year)%>%
+  group_by(site,year)%>%
   summarise(average=mean(enterococci_cfu_100ml,na.rm = T))
+```
+
+```
+## `summarise()` has grouped output by 'site'. You can override using the
+## `.groups` argument.
+```
+
+```r
 sydneybeaches_average
 ```
 
 ```
-## # A tibble: 66 × 2
-##    site_year         average
-##    <chr>               <dbl>
-##  1 Bondi Beach_2013     32.2
-##  2 Bondi Beach_2014     11.1
-##  3 Bondi Beach_2015     14.3
-##  4 Bondi Beach_2016     19.4
-##  5 Bondi Beach_2017     13.2
-##  6 Bondi Beach_2018     22.9
-##  7 Bronte Beach_2013    26.8
-##  8 Bronte Beach_2014    17.5
-##  9 Bronte Beach_2015    23.6
-## 10 Bronte Beach_2016    61.3
+## # A tibble: 66 × 3
+## # Groups:   site [11]
+##    site         year  average
+##    <chr>        <chr>   <dbl>
+##  1 Bondi Beach  2013     32.2
+##  2 Bondi Beach  2014     11.1
+##  3 Bondi Beach  2015     14.3
+##  4 Bondi Beach  2016     19.4
+##  5 Bondi Beach  2017     13.2
+##  6 Bondi Beach  2018     22.9
+##  7 Bronte Beach 2013     26.8
+##  8 Bronte Beach 2014     17.5
+##  9 Bronte Beach 2015     23.6
+## 10 Bronte Beach 2016     61.3
 ## # … with 56 more rows
 ```
 
@@ -265,7 +273,6 @@ sydneybeaches_average
 
 ```r
 sydneybeaches_average_wide<-sydneybeaches_average%>%
-  separate(site_year, into= c("site", "year"), sep = "_")%>%
   pivot_wider(names_from = "year",
               values_from = "average")
 sydneybeaches_average_wide
@@ -273,6 +280,7 @@ sydneybeaches_average_wide
 
 ```
 ## # A tibble: 11 × 7
+## # Groups:   site [11]
 ##    site                    `2013` `2014` `2015` `2016` `2017` `2018`
 ##    <chr>                    <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>
 ##  1 Bondi Beach              32.2   11.1   14.3    19.4  13.2   22.9 
@@ -299,6 +307,7 @@ arrange(sydneybeaches_average_wide_rank2018,desc(sydneybeaches_average_wide_rank
 
 ```
 ## # A tibble: 11 × 2
+## # Groups:   site [11]
 ##    site                    `2018`
 ##    <chr>                    <dbl>
 ##  1 South Maroubra Rockpool 112.  
