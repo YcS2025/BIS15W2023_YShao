@@ -39,15 +39,7 @@ This homework loosely follows the tutorial of [R Ladies Sydney](https://rladiess
 1. Start by loading the data `sydneybeaches`. Do some exploratory analysis to get an idea of the data structure.
 
 ```r
-here()
-```
-
-```
-## [1] "C:/Users/SYC91/Desktop/BIS15W2023_YShao"
-```
-
-```r
-sydneybeaches_1<-read.csv(here("lab8","data","sydneybeaches.csv"))
+sydneybeaches_1<-read.csv("data/sydneybeaches.csv")
 summary(sydneybeaches_1)
 ```
 
