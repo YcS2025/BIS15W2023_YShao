@@ -1298,7 +1298,7 @@ colleges_clean%>%
   arrange(-n)%>%
   slice_head(n=10)%>%
   ggplot(aes(x=city, y=n))+
-  geom_col()
+  geom_col()+coord_flip()
 ```
 
 ![](lab9_hw_files/figure-html/unnamed-chunk-7-1.png)<!-- -->

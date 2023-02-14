@@ -72,7 +72,7 @@ colleges_clean%>%
   arrange(-n)%>%
   slice_head(n=10)%>%
   ggplot(aes(x=city, y=n))+
-  geom_col()
+  geom_col()+coord_flip()
 ```
 
 4. The column `COSTT4_A` is the annual cost of each institution. Which city has the highest average cost? Where is it located?
