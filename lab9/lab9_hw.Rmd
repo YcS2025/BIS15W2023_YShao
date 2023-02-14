@@ -75,7 +75,7 @@ colleges_clean%>%
   geom_col()+coord_flip()
 ```
 
-4. The column `COSTT4_A` is the annual cost of each institution. Which city has the highest average cost? Where is it located?
+4. The column `COSTT4_A` is the annual cost of each institution. Which city has the highest average cost? Where is it located?。
 ```{r}
 colleges_clean%>%
   group_by(city)%>%

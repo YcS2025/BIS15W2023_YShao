@@ -1303,7 +1303,7 @@ colleges_clean%>%
 
 ![](lab9_hw_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
 
-4. The column `COSTT4_A` is the annual cost of each institution. Which city has the highest average cost? Where is it located?
+4. The column `COSTT4_A` is the annual cost of each institution. Which city has the highest average cost? Where is it located?。
 
 ```r
 colleges_clean%>%
