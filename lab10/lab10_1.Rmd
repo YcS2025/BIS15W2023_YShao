@@ -47,17 +47,23 @@ life_history %>%
 ```
 
 ```{r}
-
+life_history%>%
+  ggplot(aes(x=order))+geom_bar()+coord_flip()
 ```
 
 ```{r}
 life_history %>% 
   group_by(order) %>% 
-  summarize(mean_mass=mean(mass, na.rm=T))
+  summarize(mean_mass=mean(mass, na.rm=T))%>%
+  ggplot(aes(x=order,y=mean_mass))+geom_col()+coord_flip()+scale_y_log10()
 ```
 
 ```{r}
-
+#options(scipen = 999)#cancel scientific notation for the session
+life_history %>% 
+  group_by(order) %>% 
+  summarize(mean_mass=mean(mass, na.rm=T))%>%
+  ggplot(aes(x=reorder(order,mean_mass),y=mean_mass))+geom_col()+coord_flip()+scale_y_log10()
 ```
 
 ```{r}
@@ -71,7 +77,8 @@ life_history %>%
 ## Scatterplots
 Scatter plots allow for comparisons of two continuous variables.
 ```{r}
-
+life_history%>% 
+  ggplot(aes(x=gestation,y=wean_mass))+geom_point(na.rm = T)+scale_y_log10()
 ```
 
 ## Boxplots
@@ -97,17 +104,22 @@ elephants <- read_csv("data/elephantsMF.csv") %>% clean_names()
 
 1. How many male and female elephants are represented in the data. How would you make a plot of this?
 ```{r}
-
+names(elephants)
+elephants%>%
+  count(sex)%>%
+  ggplot(aes(x=sex,y=n))+geom_col()
 ```
 
 2. How does the age of elephants compare by sex?
 ```{r}
-
+elephants%>%
+  ggplot(aes(x=sex,y=age))+geom_boxplot()
 ```
 
 3. What is the relationship between age and height?
 ```{r}
-
+elephants%>%
+  ggplot(aes(x=age,y=height))+geom_point()
 ```
 
 ## Aesthetics: Labels
@@ -142,12 +154,18 @@ elephants %>%
 ## Other Aesthetics
 There are lots of options for aesthetics. An aesthetic can be assigned to either numeric or categorical data. `fill` is a common grouping option; notice that an appropriate key is displayed when you use one of these options.
 ```{r}
-
+elephants%>%
+  ggplot(aes(x=sex,fill=sex))+geom_bar()
 ```
 
 `size` adjusts the size of points relative to a continuous variable.
 ```{r}
-
+life_history%>%
+  ggplot(aes(x=gestation,y=log10(mass),size=mass))+geom_point(na.rm = T)
+```
+```{r}
+life_history%>%
+  filter(gestation>=20)
 ```
 
 ## Practice
