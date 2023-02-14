@@ -1,7 +1,7 @@
 ---
 title: "Lab 9 Homework"
 author: "Yuchen Shao"
-date: "2023-02-13"
+date: "2023-02-14"
 output:
   html_document:
     theme: spacelab
@@ -1297,7 +1297,7 @@ colleges_clean%>%
   count(city)%>%
   top_n(10,n)%>%
   ggplot(aes(x=city, y=n))+
-  geom_col()
+  geom_col()+coord_flip()
 ```
 
 ![](lab9_hw_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
