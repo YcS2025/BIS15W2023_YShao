@@ -88,8 +88,8 @@ deserts %>%
 deserts %>% 
   filter(weight!="NA") %>% 
   ggplot(aes(x=species_id, y=weight)) +
-  geom_boxplot()+
-  geom_point(alpha=0.5, color="purple", position = "jitter") +
+  geom_point(alpha=0.2, color="lightblue", position = "jitter") +
+  geom_boxplot(alpha=0.3)+
   coord_flip()+
   labs(title = "Distribution of weight for each species",
        x = "Species ID",
