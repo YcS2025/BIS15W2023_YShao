@@ -47,6 +47,7 @@ PFTFTUG1_EF: Percentage of undergraduate students who are first-time, full-time 
 1. Use your preferred function(s) to have a look at the data and get an idea of its structure. Make sure you summarize NA's and determine whether or not the data are tidy. You may also consider dealing with any naming issues.
 ```{r}
 summary(colleges)
+colleges
 ```
 
 ```{r}
