@@ -86,7 +86,6 @@ gapminder%>%
 ```{r}
 gapminder%>%
   ggplot(aes(x=year,y=lifeExp,group=country,color=continent))+geom_line(alpha=0.5)
-
 gapminder%>%
   group_by(year,continent)%>%
   summarise(mean=mean(lifeExp),.groups = 'keep')%>%
@@ -128,7 +127,7 @@ gapminder %>%
   filter(country=="China" | country=="India" | country=="United States" | country=="Indonesia" | country=="Brazil") %>% 
   select(country, year, pop) %>% 
   ggplot(aes(x=year, y=pop, color=country))+
-  geom_line()
+  geom_line()+geom_point(shape=6)
 ```
 
 **9. How does per-capita GDP growth compare between these same five countries?**

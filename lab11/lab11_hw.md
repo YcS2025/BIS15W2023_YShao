@@ -244,7 +244,7 @@ gapminder %>%
   filter(country=="China" | country=="India" | country=="United States" | country=="Indonesia" | country=="Brazil") %>% 
   select(country, year, pop) %>% 
   ggplot(aes(x=year, y=pop, color=country))+
-  geom_line()
+  geom_line()+geom_point(shape=6)
 ```
 
 ![](lab11_hw_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
