@@ -76,13 +76,10 @@ gapminder %>%
 **4. Your answer above doesn't tell the whole story since life expectancy varies by region. Make a summary that shows the min, mean, and max life expectancy by continent for all years represented in the data.**
 ```{r}
 gapminder%>%
-  mutate(year=as.factor(year))%>%
-  ggplot(aes(x=year,y=lifeExp,color=continent))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 60, hjust=1))+
-  labs(title = "Changes in global average life expectancy by continent",
-       x = "Year",
-       y = "Life expectancy")
+  group_by(year,continent)%>%
+  summarise(mean=mean(lifeExp),
+            min=min(lifeExp),
+            max=max(lifeExp))
 ```
 
 **5. How has life expectancy changed between 1952-2007 for each continent?**

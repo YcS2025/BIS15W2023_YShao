@@ -110,16 +110,34 @@ gapminder %>%
 
 ```r
 gapminder%>%
-  mutate(year=as.factor(year))%>%
-  ggplot(aes(x=year,y=lifeExp,color=continent))+
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 60, hjust=1))+
-  labs(title = "Changes in global average life expectancy by continent",
-       x = "Year",
-       y = "Life expectancy")
+  group_by(year,continent)%>%
+  summarise(mean=mean(lifeExp),
+            min=min(lifeExp),
+            max=max(lifeExp))
 ```
 
-![](lab11_hw_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+```
+## `summarise()` has grouped output by 'year'. You can override using the
+## `.groups` argument.
+```
+
+```
+## # A tibble: 60 × 5
+## # Groups:   year [12]
+##     year continent  mean   min   max
+##    <int> <fct>     <dbl> <dbl> <dbl>
+##  1  1952 Africa     39.1  30    52.7
+##  2  1952 Americas   53.3  37.6  68.8
+##  3  1952 Asia       46.3  28.8  65.4
+##  4  1952 Europe     64.4  43.6  72.7
+##  5  1952 Oceania    69.3  69.1  69.4
+##  6  1957 Africa     41.3  31.6  58.1
+##  7  1957 Americas   56.0  40.7  70.0
+##  8  1957 Asia       49.3  30.3  67.8
+##  9  1957 Europe     66.7  48.1  73.5
+## 10  1957 Oceania    70.3  70.3  70.3
+## # … with 50 more rows
+```
 
 **5. How has life expectancy changed between 1952-2007 for each continent?**
 
