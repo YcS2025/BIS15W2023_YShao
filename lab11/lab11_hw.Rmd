@@ -79,7 +79,8 @@ gapminder%>%
   group_by(year,continent)%>%
   summarise(mean=mean(lifeExp),
             min=min(lifeExp),
-            max=max(lifeExp))
+            max=max(lifeExp),
+            .groups = "keep")
 ```
 
 **5. How has life expectancy changed between 1952-2007 for each continent?**
@@ -142,6 +143,12 @@ gapminder %>%
 ```
 
 **10. Make one plot of your choice that uses faceting!**
+```{r}
+gapminder%>%
+  ggplot(aes(x=year,y=lifeExp,fill=continent))+
+  geom_boxplot()+ 
+  facet_wrap(~continent, ncol=36)
+```
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences. 

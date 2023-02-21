@@ -1,7 +1,7 @@
 ---
 title: "Lab 11 Homework"
 author: "Yuchen Shao"
-date: "2023-02-20"
+date: "2023-02-21"
 output:
   html_document:
     theme: spacelab
@@ -113,17 +113,13 @@ gapminder%>%
   group_by(year,continent)%>%
   summarise(mean=mean(lifeExp),
             min=min(lifeExp),
-            max=max(lifeExp))
-```
-
-```
-## `summarise()` has grouped output by 'year'. You can override using the
-## `.groups` argument.
+            max=max(lifeExp),
+            .groups = "keep")
 ```
 
 ```
 ## # A tibble: 60 × 5
-## # Groups:   year [12]
+## # Groups:   year, continent [60]
 ##     year continent  mean   min   max
 ##    <int> <fct>     <dbl> <dbl> <dbl>
 ##  1  1952 Africa     39.1  30    52.7
@@ -263,6 +259,15 @@ gapminder %>%
 ![](lab11_hw_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
 
 **10. Make one plot of your choice that uses faceting!**
+
+```r
+gapminder%>%
+  ggplot(aes(x=year,y=lifeExp,fill=continent))+
+  geom_boxplot()+ 
+  facet_wrap(~continent, ncol=36)
+```
+
+![](lab11_hw_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences. 
