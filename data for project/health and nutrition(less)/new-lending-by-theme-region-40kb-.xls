@@ -1,0 +1,1206 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="hnpApp">
+<head>
+    <link rel="shortcut icon" href="http://www.worldbank.org/content/dam/wbr/logo/wbg-favicon.png" type="image/png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="keywords" content="World Bank,Databank,HealthStats,Health, Nutrition, Population Statistics,Health, Nutrition and Population Statistics"/>
+    <meta name="description" content="worldbank.org - Key health, nutrition and population statistics gathered from a variety of international sources."/>
+    <meta name="author" content="The World Bank - www.worldbank.org">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <base href="/health/" />
+    <title ng-bind="pageTitle">Health, Nutrition and Population Data and Statistics, World Bank</title>
+    <!-- Latest compiled and minified CSS -->
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" type='text/css' />
+    <link href="css/font-awesome.css" rel="stylesheet" type='text/css' />
+    <link href="css/style-min.css" rel='stylesheet' type='text/css' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'> 
+    <!--  CSS for portal -->
+    <link href="css/custom.css" rel="stylesheet" type='text/css' />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+     
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-touch.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-sanitize.js"></script>
+
+    
+    <script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0058/1350.js" async="async"></script>
+
+    <script type="text/javascript">
+        if (window.top != window.self) {
+            alert('The URL ' + window.self.location.href + ' cannot be viewed inside a frame.  You will be redirected.');
+            window.location = "http://message.worldbank.org/www-ext-404.html";
+        }
+    </script>
+
+        <script type="text/JavaScript">
+            var wbgData = wbgData || {};
+            wbgData.page = {
+                pageInfo: {
+                    pageName: "en:wb:main:/home",
+                    pageCategory: "home",
+                    pageUid: "health-home", // format to be discussed
+                    pageFirstPub: "01-01-2015", // format will be mm-dd-yyyy
+                    pageLastMod: "01-01-2016", // format will be mm-dd-yyyy
+                    contentType: "Homepage",
+                    channel: "DEC Health, Nutrition and Population Data and Statistics EXT"
+                },
+                sectionInfo: {
+                    siteSection: "health/home",
+                    subsectionP2: ""
+                }
+            },
+                wbgData.site = {
+                    pageLoad: "Y",
+                    siteInfo: {
+                        siteLanguage: "en", // format should be en,fr etc.
+                        siteCountry: "usa", // format should be usa, ind etc.
+                        siteEnv: "prod", // format should be prod,stg,uat etc.
+                        siteType: "healthdataportal"
+                    },
+                    techInfo: {
+                        cmsType: "sharepoint",
+                        bussVPUnit: "DEC",
+                        bussUnit: "DECDG",
+                        bussUserGroup: "external",
+                        bussAgency: "ibrd"
+                    }
+                }            
+    </script>
+
+    
+    <script src=//assets.adobedtm.com/572ee9d70241b5c796ae15c773eaaee4365408ec/satelliteLib-efd6120a6f6ed94da49cf49e2ba626ac110c7e3c.js ></script>     
+    
+</head>
+
+<body class="hf_en">
+
+<!-- Start World Bank header -->
+    <header>
+	    <nav class="navbar navbar-default">
+		    <div class="container">
+			    <div class="navbar-header">
+				    <a href="http://www.worldbank.org/" class="navbar-brand g01v1-logo">
+					    <img title="The World Bank Working for a World Free of Poverty" alt="The World Bank Working for a World Free of Poverty" src="img/logo-wb-header-en.svg" class="img-responsive" />
+				    </a>
+			    </div>
+			    <!-- End Logo Section -->
+			    <div class="toggle-box">
+				    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					    <span class="sr-only">Toggle navigation</span>
+					    <span class="icon-bar"></span>
+					    <span class="icon-bar"></span>
+					    <span class="icon-bar"></span>
+				    </button>
+				    <!-- End menu dropdown Section -->
+			    </div>
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				    <ul class="nav navbar-nav">
+					    <li class="mega-menu visible-sm visible-xs" id="mega-menu-global-search">
+						    <!-- Begin Input Search -->
+						    <div class="header-search-section">
+							    <form name="hiddensearch" id="hiddensearchIdmob" action="" method="get" style="display:none">
+								    <input id="hiddensearch_id_txt" type="hidden" size="15" name="q" label="searchtexthidden" title="searchtexthidden" />
+							    </form>
+							    <form class="input-group" role="search" name="searchbox" onsubmit="javascript:return submit_search_form();">
+								    <input type="text" id="qterm_idmob" placeholder="Search worldbank.org" class="search-input-field-1 global_search_form_mobile" name="qterm_test" title="search" />
+								    <input class="search-submit-icon" type="image" src="img/search-orange.svg" alt="listingsearch" />
+							    </form>
+						    </div>
+						    <!-- End Input Search -->
+					    </li>
+					    <!-- begin Who We Are -->
+					    <li class="mega-menu" id="who-we-are">
+						    <a href="http://www.worldbank.org/en/who-we-are" class="dropdown-toggle" aria-expanded="true">Who we are</a>
+						    <div class="mega-menu-blurb hidden-lg hidden-md ">Leadership, organization, and history</div>
+						    <ul class="dropdown-menu mega-menu-dropdown">
+							    <span class="close-this-megamenu">X</span>
+							    <li class="container">
+								    <div class="row">
+									    <div class="col-lg-4 col-md-4 col-sm-12 hidden-sm">
+										    <div class="mega-menu-left-column">
+											    <div class="mega-menu-img">
+												    <img class="img-responsive" src="img/megamenu-image-1.jpg" alt="image" />
+											    </div>
+											    <div class="mega-menu-blurb">The World Bank is a unique global partnership that finances development and aid projects to end poverty and promote prosperity. We cultivate leading experts who share insight, research and data with the development community.</div>
+										    </div>
+									    </div>
+									    <!--end left column-->
+									    <div class="col-lg-8 col-md-8 col-sm-12">
+										    <div class="mega-menu-right-column row">
+											    <div class="col-lg-4 col-md-4 col-sm-4">
+												    <h4>ABOUT THE WORLD BANK</h4>
+												    <ul class="mega-menu-sublist">
+													    <li>
+														    <a href="http://www.worldbank.org/en/about/what-we-do">Overview</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/about/leadership">Organization</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/about/partners">Partners</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/about/history">History</a>
+													    </li>
+													    <li>
+														    <a href="https://openknowledge.worldbank.org/handle/10986/16093">World Bank Group Strategy</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/about/archives">Archives</a>
+													    </li>
+												    </ul>
+											    </div>
+											    <!-- End About the World Bnak -->
+											    <div class="col-lg-4 col-md-4 col-sm-4">
+												    <h4>ACCOUNTABILITY</h4>
+												    <ul class="mega-menu-sublist">
+													    <li>
+														    <a href="http://www.worldbank.org/en/about/annual-report">Annual Reports</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/access-to-information">Access to Information</a>
+													    </li>
+													    <li>
+														    <a href="http://scorecard.worldbank.org/">Corporate Scorecard</a>
+													    </li>
+													    <li>
+														    <a href="http://pdu.worldbankgroup.org/">President's Delivery Unit</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/about/unit/integrity-vice-presidency">Integrity Vice Presidency</a>
+													    </li>
+													    <li>
+														    <a href="http://ewebapps.worldbank.org/apps/ip/Pages/Home.aspx">Inspection Panel</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/projects-operations/products-and-services/grievance-redress-service">Grievance Redress Service</a>
+													    </li>
+													    <li>
+														    <a href="http://ieg.worldbankgroup.org/">Independent Evaluation Group</a>
+													    </li>
+													    <li>
+														    <a href="http://www.cao-ombudsman.org/">Compliance Advisor Ombudsman</a>
+													    </li>
+													    <li>
+														    <a href="https://policies.worldbank.org/sites/PPF3/Pages/PPFHome.aspx">Policies and Procedures</a>
+													    </li>
+												    </ul>
+											    </div>
+											    <!-- End ACCOUNTABILITY -->
+											    <div class="col-lg-4 col-md-4 col-sm-4">
+												    <h4>EXPERTS AND LEADERS</h4>
+												    <ul class="mega-menu-sublist">
+													    <li>
+														    <a href="http://www.worldbank.org/en/about/president">Office of the President</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/about/leadership/governors">Boards of Governors</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/about/leadership/directors">Boards of Directors</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/about/leadership/managers">Leadership</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/about/people/all">Experts</a>
+													    </li>
+												    </ul>
+											    </div>
+											    <!-- End EXPERTS AND LEADERS -->
+
+
+											    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												    <hr />
+												    <ul class="mega-menu-left-column-wrapper">
+													    <li>
+														    <a href="http://www.worldbank.org/en/news">
+															    <span class="menu-highlight-item">
+																    News<i class="icon-angle-right">
+																	    <span class="sr-only">Arrow</span>
+																    </i>
+															    </span>
+														    </a>
+													    </li>
+												    </ul>
+											    </div>
+
+										    </div>
+									    </div>
+									    <!--end Right column-->
+								    </div>
+								    <!--end of .row-->
+
+							    </li>
+						    </ul>
+					    </li>
+					    <!-- end Who We Are -->
+					    <!-- begin What We Do -->
+					    <li class="mega-menu" id="what-we-do">
+						    <a href="http://www.worldbank.org/en/what-we-do" class="dropdown-toggle" aria-expanded="true">What We Do</a>
+						    <div class="mega-menu-blurb hidden-lg hidden-md">Product,projects,research and services</div>
+						    <ul class="dropdown-menu mega-menu-dropdown">
+							    <span class="close-this-megamenu">X</span>
+							    <li class="container">
+								    <div class="row">
+									    <div class="col-lg-4 col-md-4 col-sm-12 hidden-sm">
+										    <div class="mega-menu-left-column">
+											    <div class="mega-menu-img">
+												    <img class="img-responsive" src="img/megamenu-image-2.jpg" alt="image" />
+											    </div>
+											    <div class="mega-menu-blurb">The World Bank is a vital source of financial and technical assistance. We fund thousands of develoment projects, offer aid during emergencies, and invest in private sector. We cultivate leading experts who share insight, research, and data with the development community.</div>
+										    </div>
+									    </div>
+									    <!--end of .column-->
+									    <div class="col-lg-8 col-md-8 col-sm-12">
+										    <div class="mega-menu-right-column row">
+											    <div class="col-lg-5 col-md-5 col-sm-5">
+												    <h4>DEVELOPMENT PRIORITIES</h4>
+												    <ul>
+													    <li>
+														    <a href="http://www.worldbank.org/projects">
+															    <span class="menu-highlight-item">Projects</span>
+														    </a>
+													    </li>
+													    <ul class="mega-menu-sublist">
+														    <li>
+															    <a href="http://www.worldbank.org/projects/country?lang=en&amp;page=">By Country</a>
+														    </li>
+														    <li>
+															    <a href="http://www.worldbank.org/projects/sector?lang=en&amp;page=">By Sector</a>
+														    </li>
+														    <li>
+															    <a href="http://www.worldbank.org/projects/theme?lang=en&amp;page=">By Theme</a>
+														    </li>
+													    </ul>
+													    <li class="mrg-t-15">
+														    <a href="http://www.worldbank.org/en/projects-operations/country-strategies">
+															    <span class="menu-highlight-item">Country Partnership Framework</span>
+														    </a>
+													    </li>
+													    <li style="margin-top: 10px;">
+														    <a href="http://www.worldbank.org/en/results">
+															    <span class="menu-highlight-item">Results</span>
+														    </a>
+													    </li>
+												    </ul>
+											    </div>
+											    <!-- End Development Project -->
+											    <div class="col-lg-3 col-md-3 col-sm-3">
+												    <h4>PRODUCTS & SERVICES</h4>
+												    <ul class="mega-menu-sublist">
+													    <li>
+														    <a href="http://www.worldbank.org/en/projects-operations/products-and-services">Financing Products &amp; Advisory Services</a>
+													    </li>
+													    <li>
+														    <a href="http://treasury.worldbank.org/">Treasury</a>
+													    </li>
+												    </ul>
+											    </div>
+											    <!-- End Lend And Advise -->
+											    <div class="col-lg-4 col-md-4 col-sm-4">
+												    <h4>DEVELOPMENT KNOWLEDGE</h4>
+												    <ul class="mega-menu-sublist">
+													    <li>
+														    <a href="http://www.worldbank.org/en/research">Research &amp; Publications</a>
+													    </li>
+													    <li>
+														    <a href="http://data.worldbank.org/">Data</a>
+													    </li>
+													    <li>
+														    <a href="https://olc.worldbank.org/">Learning</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/topic">Development Topics</a>
+													    </li>
+													    <li>
+														    <a href="https://openknowledge.worldbank.org/">Open Knowledge Repository</a>
+													    </li>
+												    </ul>
+											    </div>
+											    <!-- End Development Knowledge -->
+										    </div>
+									    </div>
+									    <!--end of Right.column-->
+								    </div>
+								    <!--end of .row-->
+
+							    </li>
+						    </ul>
+					    </li>
+					    <!-- end What We Do -->
+					    <!-- begin Where We Work -->
+					    <li class="mega-menu" id="where-we-work">
+						    <a href="http://www.worldbank.org/en/where-we-work" class="dropdown-toggle" aria-expanded="true">Where We Work</a>
+						    <div class="mega-menu-blurb hidden-lg hidden-md ">Countries and regions</div>
+						    <ul class="dropdown-menu mega-menu-dropdown">
+							    <span class="close-this-megamenu">X</span>
+							    <li class="container">
+								    <div class="row">
+									    <div class="col-lg-5 col-md-5 col-sm-12">
+										    <div class="mega-menu-left-column mega-menu-search-padd">
+											    <h4>COUNTRIES</h4>
+											    <ul class="mega-menu-left-column-wrapper">
+												    <!-- Begin Input Search -->
+												    <div class="header-search-section">
+													    <form data-csearch="https://author-wb-stage62.adobecqms.net/content/country/country-landing/en.html" id="csearch" class="input-group" role="search" name="searchbox" onsubmit="javascript:WriteCookie();" method="get">
+														    <input type="text" autocomplete="off" onfocus="clearField(this)" placeholder="Country Name..." class="search-input-field-1 search_form_where_we_work" id="search11" name="usrname" title="search" />
+														    <!--<input class="search-submit-icon" type="image" src="/etc/designs/wbrrdesign/clientlibs-wbrredsign/img/search-orange.svg" alt="listingsearch">-->
+														    <i class="dropdown-toggle fa fa-angle-down arrow-down search-submit-icon"></i>
+													    </form>
+													    <ul class="tt-menu">
+														    <li class="tt-suggestion" data-original-index="0">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/afghanistan">Afghanistan</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="1">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/albania">Albania</a>
+																    <span> | </span>
+																    <a class="country-search" href="http://www.worldbank.org/sq/country/albania">shqip</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="2">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/algeria">Algeria</a>
+																    <span> | </span>
+																    <a class="country-search" href="http://www.banquemondiale.org/fr/country/algeria">Français</a>
+																    <span> | </span>
+																    <a class="country-search" href="http://www.albankaldawli.org/ar/country/algeria/ar">عربي</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="3">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/angola">Angola</a>
+																    <span> | </span>
+																    <a class="country-search" href="http://www.worldbank.org/pt/country/angola">Português</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="4">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/oecs">Antigua and Barbuda</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="5">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/argentina">Argentina</a>
+																    <span> | </span>
+																    <a class="country-search" href="http://www.bancomundial.org/es/country/argentina">Español</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="6">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/armenia">Armenia</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="7">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/austria">Austria</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="8">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/azerbaijan">Azerbaijan</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="9">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/region/mena/brief/gcc">Bahrain</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="10">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/bangladesh">Bangladesh</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="11">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/belarus">Belarus</a>
+																    <span> | </span>
+																    <a class="country-search" href="http://www.worldbank.org/ru/country/belarus">Русский</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="12">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/belgium">Belgium</a>
+																    <span> | </span>
+																    <a class="country-search" href="http://www.banquemondiale.org/fr/country/belgium">Français</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="13">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/belize">Belize</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="14">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/benin">Benin</a>
+																    <span> | </span>
+																    <a class="country-search" href="http://www.banquemondiale.org/fr/country/benin">Français</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="15">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/bhutan">Bhutan</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="16">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/bolivia">Bolivia</a>
+																    <span> | </span>
+																    <a class="country-search" href="http://www.bancomundial.org/es/country/bolivia">Español</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="17">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/bosniaandherzegovina">Bosnia and Herzegovina</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="18">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/botswana">Botswana</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="19">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/brazil">Brazil</a>
+																    <span> | </span>
+																    <a class="country-search" href="http://www.worldbank.org/pt/country/brazil">Português</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="20">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/bulgaria">Bulgaria</a>
+																    <span> | </span>
+																    <a class="country-search" href="http://www.worldbank.org/bg/country/bulgaria">Български</a>
+															    </span>
+														    </li>
+														    <li class="tt-suggestion" data-original-index="21">
+															    <span class="text">
+																    <a class="firstLevel country-search" href="http://www.worldbank.org/en/country/burkinafaso">Burkina Faso</a>
+																    <span> | </span>
+																    <a class="country-search" href="http://www.banquemondiale.org/fr/country/burkinafaso">Français</a>
+															    </span>
+														    </li>
+
+													    </ul>
+												    </div>
+												    <!-- End Input Search -->
+												    <li>
+													    <a href="#">
+														    <span class="menu-highlight-item">
+															    Countries List<i class="icon-angle-right">
+																    <span class="sr-only">Arrow</span>
+															    </i>
+														    </span>
+													    </a>
+												    </li>
+											    </ul>
+											    <ul class="mega-menu-left-column-wrapper">
+												    <h4>RECENT SEARCHES</h4>
+												    <div>
+													    <ul class="no-mega-menu-sublist"></ul>
+												    </div>
+											    </ul>
+										    </div>
+									    </div>
+									    <!-- End Country Search -->
+									    <div class="col-lg-7 col-md-7 col-sm-12">
+										    <div class="mega-menu-right-column row">
+											    <div class="col-lg-6 col-md-6 col-sm-6">
+												    <h4>REGIONS</h4>
+												    <ul class="mega-menu-sublist">
+													    <li>
+														    <a href="http://www.worldbank.org/en/region/afr">Africa</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/region/eap">East Asia and Pacific</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/region/eca">Europe and Central Asia</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/region/lac">Latin America and Caribbean</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/region/mena">Middle East and North Africa</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/region/sar">South Asia</a>
+													    </li>
+												    </ul>
+											    </div>
+											    <!-- End Regions column -->
+											    <div class="col-lg-6 col-md-6 col-sm-6">
+												    <h4>COUNTRY GROUPS</h4>
+												    <ul class="mega-menu-sublist">
+													    <li>
+														    <a href="http://www.worldbank.org/en/country/eu">European Union</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/country/mic">Middle Income Countries</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/country/oecs">Organization of Eastern Caribbean States</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/country/pacificislands">Pacific Islands</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/country/smallstates">Small States</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/country/gcc">Gulf Cooperation Council</a>
+													    </li>
+													    <li>
+														    <a href="http://www.worldbank.org/en/country/westerneurope">Western Europe</a>
+													    </li>
+												    </ul>
+											    </div>
+											    <!-- End Country Groups column -->
+										    </div>
+									    </div>
+									    <!-- End Country List -->
+								    </div>
+								    <!--end of .row-->
+
+							    </li>
+						    </ul>
+					    </li>
+					    <!-- end Where We Work -->
+					    <!-- begin Understanding Poverty -->
+					    <li class="mega-menu" id="understanding-poverty">
+						    <a href="http://www.worldbank.org/en/understanding-poverty" class="dropdown-toggle" aria-expanded="true">Understanding Poverty</a>
+						    <div class="mega-menu-blurb hidden-lg hidden-md">
+							    More than <strong>one billion people</strong> worldwide still live in extreme poverty, a state of affairs that is morally unacceptable given the resources and technology we have available today.
+						    </div>
+
+						    <ul class="dropdown-menu mega-menu-dropdown">
+							    <span class="close-this-megamenu">X</span>
+							    <li class="container">
+								    <div class="row">
+									    <div class="col-lg-4 col-md-4 col-sm-12 hidden-sm">
+
+										    <div class="mega-menu-left-column">
+											    <div class="mega-menu-img">
+												    <img class="img-responsive" src="img/megamenu-image.jpg" alt="image" />
+											    </div>
+											    <div class="mega-menu-blurb">
+												    More than <strong>one billion people</strong> worldwide still live in extreme poverty, a state of affairs that is morally unacceptable given the resources and technology we have available today.  At the same time, rising inequality and social exclusion seems to accompany rising prosperity in many countries.
+											    </div>
+										    </div>
+									    </div>
+									    <!--end of .column-->
+									    <div class="col-lg-8 col-md-8 col-sm-12">
+										    <div class="mega-menu-right-column row">
+											    <div class="col-lg-5 col-md-5 col-sm-5">
+												    <h4>DATA AND RESEARCH</h4>
+												    <ul>
+													    <li>
+														    <a href="http://data.worldbank.org/">
+															    <span class="menu-highlight-item">Open Data</span>
+														    </a>
+													    </li>
+													    <ul class="mega-menu-sublist">
+														    <li>
+															    <a href="http://data.worldbank.org/country">By Country</a>
+														    </li>
+														    <li>
+															    <a href="http://data.worldbank.org/indicator">By Indicator</a>
+														    </li>
+													    </ul>
+													    <li class="mrg-t-15">
+														    <a href="http://www.worldbank.org/en/research">
+															    <span class="menu-highlight-item">Research &amp; Publications</span>
+														    </a>
+													    </li>
+												    </ul>
+											    </div>
+											    <!--end of Data And Research column-->
+											    <div class="col-lg-7 col-md-7 col-sm-7">
+												    <h4>DEVELOPMENT PRIORITIES</h4>
+												    <div class="row">
+													    <div class="col-lg-6 col-md-6 col-sm-6">
+														    <ul class="mega-menu-sublist">
+															    <li>
+																    <a href="http://www.worldbank.org/en/topic/climatechange">Climate Change</a>
+															    </li>
+															    <li>
+																    <a href="http://www.worldbank.org/en/topic/education">Education</a>
+															    </li>
+															    <li>
+																    <a href="http://www.worldbank.org/en/topic/energy">Energy</a>
+															    </li>
+															    <li>
+																    <a href="http://www.worldbank.org/en/topic/fragilityconflictviolence">Fragility, Conflict and Violence</a>
+															    </li>
+														    </ul>
+													    </div>
+													    <div class="col-lg-6 col-md-6 col-sm-6">
+														    <ul>
+															    <ul class="mega-menu-sublist">
+																    <li>
+																	    <a href="http://www.worldbank.org/en/topic/poverty">Poverty</a>
+																    </li>
+																    <li>
+																	    <a href="http://www.worldbank.org/en/topic/sustainabledevelopment">Sustainable Development</a>
+																    </li>
+																    <li>
+																	    <a href="http://www.worldbank.org/en/topic/trade">Trade</a>
+																    </li>
+																    <li>
+																	    <a href="http://www.worldbank.org/en/topic/health">Health</a>
+																    </li>
+															    </ul>
+															    <li class="mrg-t-15">
+																    <a href="http://www.worldbank.org/en/topic">
+																	    <span class="menu-highlight-item">
+																		    All Development Topics <i class="icon-angle-right">
+																			    <span class="sr-only">Arrow</span>
+																		    </i>
+																	    </span>
+																    </a>
+															    </li>
+														    </ul>
+													    </div>
+												    </div>
+											    </div>
+											    <!--end of Development Priorities .column-->
+											    <div class="col-lg-12 col-md-12 col-sm-12">
+												    <hr />
+												    <!-- Begin Input Search -->
+												    <div class="header-search-section">
+													    <form name="hiddensearch1" id="hiddensearchId1" action="" method="get" style="display:none">
+														    <input id="hiddensearch_id_txt1" type="hidden" size="15" name="query" label="searchtexthidden1" title="searchtexthidden1" />
+													    </form>
+													    <form class="input-group" role="search" name="search1" onsubmit="return submit_search_form_upoverty();" method="get">
+														    <input type="search" onfocus="clearField(this)" placeholder="Search research and publications" class="search-input-field-1 search_form_poverty" id="qterm_id1" name="qterm_test1" title="search" />
+														    <a title="Search" href="javascript:submit_search_form_upoverty();">
+															    <input class="search-submit-icon" type="image" src="img/search-orange.svg" alt="listingsearch" />
+
+														    </a>
+													    </form>
+												    </div>
+
+												    <!-- End Input Search -->
+											    </div>
+										    </div>
+									    </div>
+									    <!--end of Right.column-->
+								    </div>
+								    <!--end of .row-->
+							    </li>
+
+						    </ul>
+					    </li>
+					    <!-- end Understanding Poverty -->
+					    <!-- begin Work With us -->
+					    <li class="mega-menu" id="work-with-us">
+						    <a  href="http://www.worldbank.org/en/work-with-us" class="dropdown-toggle" aria-expanded="true">Work With us</a>
+						    <div class="mega-menu-blurb hidden-lg hidden-md ">Jobs, events, procurement, training, and more</div>
+						    <ul class="dropdown-menu mega-menu-dropdown">
+							    <span class="close-this-megamenu">X</span>
+							    <li class="container">
+								    <div class="mega-menu-right-column row">
+									    <div class="col-md-15 col-sm-12">
+										    <h4>For Job Seekers</h4>
+										    <ul class="mega-menu-sublist">
+											    <li>
+												    <a href="http://web.worldbank.org/WBSITE/EXTERNAL/EXTJOBSNEW/0,,pagePK:8454306~theSitePK:8453353,00.html">Jobs</a>
+											    </li>
+											    <li>
+												    <a href="http://web.worldbank.org/WBSITE/EXTERNAL/EXTJOBSNEW/0,,contentMDK:23123155~menuPK:8453544~pagePK:8453902~piPK:8453359~theSitePK:8453353,00.html">Programs &amp; Internships</a>
+											    </li>
+										    </ul>
+									    </div>
+									    <!--end of Data And Research column-->
+									    <div class="col-md-15 col-sm-12">
+										    <h4>For Partners</h4>
+										    <ul class="mega-menu-sublist">
+											    <li>
+												    <a href="http://www.worldbank.org/en/about/partners">Partners</a>
+											    </li>
+											    <li>
+												    <a href="https://clientconnection.worldbank.org/servlet/main?menuPK=234032&amp;pagePK=232663&amp;piPK=234033">Clients</a>
+											    </li>
+											    <li>
+												    <a href="http://www.worldbank.org/en/projects-operations/products-and-services/procurement-projects-programs">Procurement for Projects and Programs</a>
+											    </li>
+											    <li>
+												    <a href="http://web.worldbank.org/WBSITE/EXTERNAL/OPPORTUNITIES/EXTCORPPROCUREMENT/0,,menuPK:64147159~pagePK:64147234~piPK:64147236~theSitePK:438017,00.html">Corporate procurement&nbsp;</a>
+											    </li>
+											    <li>
+												    <a href="http://www.worldbank.org/en/about/partners/civil-society">Civil Society</a>
+											    </li>
+											    <li>
+												    <a href="http://consultations.worldbank.org/?map=1">Consultations</a>
+											    </li>
+											    <li>
+												    <a href="http://www.worldbank.org/en/about/parliamentarians">Parliamentarians</a>
+											    </li>
+										    </ul>
+									    </div>
+									    <div class="col-md-15 col-sm-12">
+										    <h4>For Investors</h4>
+										    <ul class="mega-menu-sublist">
+											    <li>
+												    <a href="http://treasury.worldbank.org/cmd/htm/index.html">World Bank Bonds &amp; Investment Products</a>
+											    </li>
+											    <li>
+												    <a href="http://treasury.worldbank.org/web/about_worldbank.html">Treasury</a>
+											    </li>
+										    </ul>
+									    </div>
+									    <div class="col-md-15 col-sm-12">
+										    <h4>For Students and Learners</h4>
+										    <ul class="mega-menu-sublist">
+											    <li>
+												    <a href="https://olc.worldbank.org/">Open Learning Campus</a>
+											    </li>
+											    <li>
+												    <a href="http://www.worldbank.org/en/programs/youth">Youth</a>
+											    </li>
+										    </ul>
+									    </div>
+									    <div class="col-md-15 col-sm-12">
+										    <h4>Meet Us</h4>
+										    <ul class="mega-menu-sublist">
+											    <li>
+												    <a href="http://www.worldbank.org/en/events">Events</a>
+											    </li>
+											    <li>
+												    <a href="http://live.worldbank.org/">World Bank Live</a>
+											    </li>
+											    <li>
+												    <a href="http://www.worldbank.org/en/about/speakers-bureau">Speaker's Bureau</a>
+											    </li>
+											    <li>
+												    <a href="http://www.worldbank.org/en/about/what-we-do/annual-meetings">Annual Meetings</a>
+											    </li>
+										    </ul>
+									    </div>
+								    </div>
+								    <!-- End top link -->
+								    <hr />
+								    <div class="row">
+									    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										    <ul class="mega-menu-left-column-wrapper">
+											    <li>
+												    <a href="http://www.worldbank.org/en/about/contacts">
+													    <span class="menu-highlight-item">
+														    Contacts &amp; Inquiries<i class="icon-angle-right">
+															    <span class="sr-only">Arrow</span>
+														    </i>
+													    </span>
+												    </a>
+											    </li>
+										    </ul>
+									    </div>
+								    </div>
+							    </li>
+						    </ul>
+					    </li>
+					    <!-- end Work With Us -->
+					    <li class="mega-menu hidden-sm hidden-xs" id="mega-menu-global-search">
+						    <a href="http://www.worldbank.org/en/search">
+						        <img class="megamenu_search_icon"  src="img/search-orange.svg" title="Search" alt="Search" />
+						    </a>
+						    <ul class="dropdown-menu mega-menu-dropdown">
+							    <span class="close-this-megamenu">X</span>
+							    <li class="container">
+								    <div class="mega-menu-right-column padd row">
+									    <div class=" col-lg-2 col-md-2 col-sm-12 col-xs-2">
+										    <h2>Search</h2>
+									    </div>
+									    <div class=" col-lg-7 col-md-7 col-sm-8 col-xs-12 ">
+										    <!-- Begin Input Search -->
+										    <div class="header-search-section">
+											    <form class="input-group" role="search" name="searchbox" action="" onsubmit="return submit_search_form();" method="get">
+												    <input type="search" onfocus="clearField(this)" placeholder="Search worldbank.org" class="search-input-field-1" id="qterm_id" name="qterm_test" title="search" />
+												    
+                                                    <a title="Search" href="javascript:submit_search_form();">
+	                                                    <input class="search-submit-icon" type="image" src="img/search-orange.svg" alt="listingsearch" />
+                                                    </a>
+
+											    </form>
+										    </div>
+										    <!-- End Input Search -->
+									    </div>
+									    <div class=" col-lg-3 col-md-3 col-sm-4 col-xs-12">
+										    <a href="javascript:submit_search_form();" class="btn btn-default btn-lg primary-light-blue-btn">Search</a>
+									    </div>
+
+								    </div>
+							    </li>
+						    </ul>
+					    </li>
+
+				    </ul>
+			    </div>
+			    <!-- /.navbar-collapse -->
+		    </div>
+		    <!-- /.container -->
+	    </nav>
+    </header>
+
+<!-- End World Bank header -->
+
+
+<!-- Content goes here -->
+    <div class="l-page" style="clear:both;">
+    
+        <div>
+            <div id="portal-header" class="container">
+
+                <div>
+                    <ul class="breadcrumb">
+                        <li><a href="http://data.worldbank.org/">Data</a></li>
+                        <li><a href="home">Health, Nutrition and Population Data Portal</a></li>
+                        <li>{{page}}</li>
+                    </ul>
+                </div>
+                <div class="pull-left">
+                    <div id="logo">
+                        <h2>Health, Nutrition and Population</h2>
+                    </div>
+                </div>
+               
+                <div class="pull-right" id="topLinks">
+
+                    <ul class="nav navbar-nav">
+                        
+                        <li><a href="home" aria-label="Go to home page"><i class="material-icons" aria-hidden="true" style="font-size: 18px;line-height: 20px;">home</i></a></li>
+                        <li><a href="about">About</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dashboards<span class="caret"></span></a>                      
+                            <ul class="dropdown-menu">
+                                <li><a href="health">Health</a></li>
+                                <li><a href="population">Population</a></li>
+                            </ul>                        
+                        </li>
+
+                        <li><a href="publications">Publications</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Indicators<span class="caret"></span></a>                      
+                            <ul class="dropdown-menu">
+                                <li><a href="sdg-indicators">Health SDGs</a></li>
+                                <li><a href="available-indicators">Available Indicators</a></li>
+                            </ul>                        
+                        </li>
+
+                        <li><a href="thematic-data">Thematic Data</a></li>
+                        <li><a href="monitoring">Monitoring</a></li>
+                        <li><a href="lending">Lending</a></li>
+                        <li><a href="links">Links</a></li>
+                        <li><a href="mailto:data@worldbank.org?subject=Health, Nutrition and Population Data Portal">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown" id="topLinks-mobile">
+                    <button class="btn dropdown-btn" type="button"
+                        id="topLinksDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Go To <i class="fa fa-chevron-down pull-right" aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="topLinksDropdown">
+                        <li><a href="home">Home</a></li>
+                        <li><a href="about">About</a></li>
+
+                        <li><a href="health">Health Dashboard</a></li>
+                        <li><a href="population">Population Dashboard</a></li>
+
+                        <li><a href="publications">Publications</a></li>
+
+                        <li><a href="sdg-indicators">Health SDGs</a></li>
+                        <li><a href="available-indicators">Available Indicators</a></li>
+
+                        <li><a href="thematic-data">Thematic Data</a></li>
+                        <li><a href="monitoring">Monitoring</a></li>
+                        <li><a href="lending">Lending</a></li>
+                        <li><a href="links">Links</a></li>
+                        <li><a href="mailto:data@worldbank.org?subject=Health, Nutrition and Population Data Portal">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+             <div class="clear-fix" />
+            <div id="all-content">
+                <div class="container">
+
+
+                    <div class="page-header">
+                        <h2 ng-bind-html="title">
+                            
+                        </h2>
+                    </div>
+                    <div class="page-sections">
+                        <div ng-view autoscroll="true">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+<!-- End of content -->
+
+
+<!-- Start World Bank footer -->
+    <footer>
+	    <div class="full-row-footer-components">
+		    <div class="container">
+			    <div class="footer">
+				    <div class="footer-top">
+					    <div class="row">
+						    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+							    <div class="footer-menu-item">
+								    <div class="row">
+									    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+										    <ul>
+											    <li>
+												    <a href="http://www.worldbank.org/en/about">About</a>
+											    </li>
+											    <li>
+												    <a href="http://data.worldbank.org">Data</a>
+											    </li>
+											    <li>
+												    <a href="http://www.worldbank.org/en/research">Research and Publications</a>
+											    </li>
+											    <li>
+												    <a href="https://olc.worldbank.org">Learning</a>
+											    </li>
+										    </ul>
+									    </div>
+									    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+										    <ul>
+											    <li>
+												    <a href="http://www.worldbank.org/en/news">News</a>
+											    </li>
+											    <li>
+												    <a href="http://projects.worldbank.org/?lang=en">Projects and Operations</a>
+											    </li>
+											    <li>
+												    <a href="http://www.worldbank.org/en/country">Countries</a>
+											    </li>
+											    <li>
+												    <a href="http://www.worldbank.org/en/topic">Topics</a>
+											    </li>
+										    </ul>
+									    </div>
+								    </div>
+							    </div>
+						    </div>
+						    <!-- End left column footer menu section -->
+						    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+							    <hr class="visible-sm visible-xs" />
+							    <div class="row">
+								    <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+									    <div class="social-icon">
+										    <h4> follow us</h4>
+										    <ul>
+
+											    <li>
+												    <a href="http://www.facebook.com/worldbank" class="social-icon-img">
+													    <img src="img/icons/fb.svg" alt="Image" class="img-responsive" />
+												    </a>
+											    </li>
+											    <li>
+												    <a href="http://www.twitter.com/worldbank" class="social-icon-img">
+													    <img src="img/icons/twitter.svg" alt="Image" class="img-responsive" />
+												    </a>
+											    </li>
+											    <li>
+												    <a href="http://www.linkedin.com/company/the-world-bank" class="social-icon-img">
+													    <img src="img/icons/linkedln.svg" alt="Image" class="img-responsive" />
+												    </a>
+											    </li>
+											    <li>
+												    <a href="https://instagram.com/worldbank/" class="social-icon-img">
+													    <img src="img/icons/instagram.svg" alt="Image" class="img-responsive" />
+												    </a>
+											    </li>
+											    <li>
+												    <a href="https://www.youtube.com/user/WorldBank" class="social-icon-img">
+													    <img src="img/icons/youtube.svg" alt="Image" class="img-responsive" />
+												    </a>
+											    </li>
+											    <li>
+												    <a href="https://www.flickr.com/photos/worldbank" class="social-icon-img">
+													    <img src="img/icons/flickr.svg" alt="Image" class="img-responsive" />
+												    </a>
+											    </li>
+
+										    </ul>
+									    </div>
+								    </div>
+								    <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+									    <!--<hr class="visible-md visible-xs">-->
+									    <div class="footer-newsletter">
+										    <h4>newsletter</h4>
+										    <div class="search-section">
+											    <form action="https://worldbank.us14.list-manage.com/subscribe/post" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate input-group mySignUpFormDesktop" target="_blank" accept-charset="UTF-8" novalidate="">
+												    <input name="u" value="7c1e44071ec3b30a3f233c48e" type="hidden" />
+												    <input name="id" value="fdb041ef28" type="hidden" />
+												    <!--<input name="ht" value="efc6260301c59ce08d4f859fa03e1c3af5ac871f:MTQ3OTQyMTQ2My40Mjk0" type="hidden">-->
+												    <input name="mc_signupsource" value="hosted" type="hidden" />
+												    <input type="text" onfocus="value=''" placeholder="Enter email to subscribe..." class="search-input-field-1" id="fields_email" name="MERGE0" title="search" />
+												    <input class="search-submit-icon" name="subscribe" id="mc-embedded-subscribe" type="image" src="img/angle-right.svg" alt="listingsearch" />
+											    </form>
+										    </div>
+									    </div>
+									    <!-- Begin Language toggler -->
+									    <div class="row">
+										    <div class="col-lg-12">
+											    <!-- Begin Language toggler -->
+											    <div class="lang-switch-wrapper">
+												    <span>This Site in:</span>
+												    <div class="lang-switch">
+													    <ul>
+														    <li class="dropdown dropup">
+															    <a href="http://www.worldbank.org" class="dropdown-toggle lang-lable" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+																    English <img src="img/angle-down.svg" />
+															    </a>
+															    <ul class="dropdown-menu dropdown-item">
+																    <li>
+																	    <a href="http://www.bancomundial.org">Español</a>
+																    </li>
+																    <li>
+																	    <a href="http://www.banquemondiale.org">Français</a>
+																    </li>
+																    <li>
+																	    <a href="http://www.albankaldawli.org">عربي</a>
+																    </li>
+																    <li>
+																	    <a href="http://www.vsemirnyjbank.org">Русский</a>
+																    </li>
+																    <li>
+																	    <a href="http://www.shihang.org">中文</a>
+																    </li>
+																    <li>
+																	    <a href="http://www.worldbank.org/en/language-resources">View All »</a>
+																    </li>
+															    </ul>
+														    </li>
+													    </ul>
+												    </div>
+											    </div>
+
+											    <!-- End Language toggler -->
+										    </div>
+									    </div>
+									    <!-- End Language toggler -->
+								    </div>
+							    </div>
+						    </div>
+						    <!-- End right column footer follow and newsletter section -->
+					    </div>
+				    </div>
+				    <!-- End footer top row -->
+				    <div class="footer-bottom">
+					    <div class="row">
+						    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							    <div class="list-inline">
+								    <ul>
+									    <li>
+										    <a class="disclaimer" href="http://www.worldbank.org/legalinfo">Legal</a>
+										    <a class="disclaimer" href="http://www.worldbank.org/en/access-to-information">Access to Information</a>
+										    <a class="disclaimer" href="http://www.worldbank.org/jobs">Jobs</a>
+										    <a class="disclaimer" href="http://www.worldbank.org/en/about/contacts">Contact</a>
+									    </li>
+								    </ul>
+							    </div>
+						    </div>
+						    <!-- End disclaimer-->
+						    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							    <div class="footer-fraud">
+								    <a href="http://www.worldbank.org/en/about/unit/integrity-vice-presidency/report-an-allegation">REPORT FRAUD OR CORRUPTION</a>
+							    </div>
+						    </div>
+						    <!-- End disclaimer and copy right -->
+					    </div>
+
+				    </div>
+			    </div>
+		    </div>
+	    </div>
+
+	    <!-- End footer Bottom row -->
+	    <div class="full-row-footer-black-components">
+		    <div class="container">
+			    <div class="footer">
+				    <div class="row">
+					    <div class="footer-bottom-left">
+						    <div class="col-md-12 col-sm-12 col-xs-12">
+							    <ul>
+								    <li>
+									    <a href="http://www.worldbank.org/">
+										    <img src="img/logo-wbg-footer-en.svg" title="The World Bank Working for a World Free of Poverty" alt="The World Bank Working for a World Free of Poverty" />
+									    </a>
+								    </li>
+								    <li>
+									    <a class="wbg-partnership" title="International Bank for Reconstruction and Development" href="http://www.worldbank.org/en/who-we-are/ibrd">IBRD</a>
+									    <a class="wbg-partnership" title="International Development Association" href="http://www.worldbank.org/ida">IDA</a>
+									    <a class="wbg-partnership" title="International Finance Corporation" href="http://www.ifc.org/">IFC</a>
+									    <a class="wbg-partnership" title="Multilateral Investment Guarantee Agency" href="http://www.miga.org/">MIGA</a>
+									    <a class="wbg-partnership" title="International Centre for Settlement of Investment Disputes" href="http://icsid.worldbank.org/">ICSID</a>
+								    </li>
+							    </ul>
+						    </div>
+					    </div>
+					    <!-- End logo and Wbg partnership -->
+					    <div class="footer-bottom-right">
+						    <div class="col-md-12 col-sm-12 col-xs-12">
+							    <div class="footer-copy-right">
+								    ©
+								    <script language="JavaScript">
+									    <!--								        Begin
+								        var time = new Date();
+								        var year = time.getYear();
+								        if (year < 2000)
+								            year = year + 1900;
+								        document.write(year); // End -->
+								    </script>
+								    The World Bank Group, All Rights Reserved.
+							    </div>
+
+						    </div>
+					    </div>
+					    <!-- End dropdown and fraud  -->
+				    </div>
+			    </div>
+		    </div>
+	    </div>
+    </footer>
+<!-- End World Bank footer -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src='js/megamenu-min.js' type="text/javascript"></script>
+    <script src="js/header.js" type="text/javascript"></script> 
+    
+    <script src="js/ui-bootstrap-tpls-2.1.3.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <script type="text/javascript">
+        function OmnitureUpdate(pname) {      
+
+        }
+    </script>
+
+    
+    <script type="text/javascript">_satellite.pageBottom();</script>
+    
+
+</body></html>

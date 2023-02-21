@@ -1,0 +1,44 @@
+﻿Food product,Land Use Change,Feed,Farm,Processing,Transport,Packaging,Retail,Total from Land to Retail,Total Global Average GHG Emissions per kg,Unit of GHG Emissions
+Apples,-0.029,0,0.225,0.004,0.096,0.044,0.017,0.357,0.43,kg CO2e per kg food produced
+Bananas,-0.025,0,0.266,0.059,0.292,0.065,0.021,0.678,0.86,kg CO2e per kg food produced
+Barley,0.009,0,0.176,0.128,0.035,0.497,0.264,1.109,1.18,kg CO2e per kg food produced
+Beef (beef herd),16.278,1.878,39.388,1.269,0.346,0.247,0.164,59.57,99.48,kg CO2e per kg food produced
+Beef (dairy herd),0.906,2.508,15.689,1.108,0.424,0.268,0.182,21.085,33.3,kg CO2e per kg food produced
+Beet Sugar,0,0,0.536,0.242,0.629,0.09,0.039,1.536,1.81,kg CO2e per kg food produced
+Berries & Grapes,0.025,0,0.722,0,0.238,0.212,0.017,1.214,1.53,kg CO2e per kg food produced
+Brassicas,0.002,0,0.278,0,0.095,0.045,0.017,0.437,0.51,kg CO2e per kg food produced
+Cane Sugar,1.247,0,0.485,0.037,0.784,0.083,0.036,2.672,3.2,kg CO2e per kg food produced
+Cassava,0.589,0,0.22,0,0.094,0.045,0.039,0.987,1.32,kg CO2e per kg food produced
+Cheese,4.455,2.346,13.059,0.738,0.138,0.172,0.332,21.24,23.88,kg CO2e per kg food produced
+Citrus Fruit,-0.146,0,0.307,0,0.094,0.045,0.017,0.317,0.39,kg CO2e per kg food produced
+Coffee,3.688,0,10.386,0.592,0.13,1.63,0.051,16.477,28.53,kg CO2e per kg food produced
+Dark Chocolate,14.308,0,3.706,0.185,0.061,0.4,0.021,18.681,46.65,kg CO2e per kg food produced
+Eggs,0.709,2.2,1.317,0,0.084,0.161,0.036,4.507,4.67,kg CO2e per kg food produced
+Fish (farmed),0.534,0.819,3.598,0.02,0.111,0.061,0.04,5.183,13.63,kg CO2e per kg food produced
+Groundnuts,0.439,0,1.425,0.372,0.12,0.099,0.042,2.497,3.23,kg CO2e per kg food produced
+Lamb & Mutton,0.468,2.37,19.508,1.111,0.49,0.251,0.217,24.415,39.72,kg CO2e per kg food produced
+Maize,0.315,0,0.475,0.052,0.06,0.06,0.026,0.988,1.7,kg CO2e per kg food produced
+Milk,0.495,0.236,1.458,0.149,0.09,0.097,0.256,2.781,3.15,kg CO2e per kg food produced
+Nuts,-2.052,0,2.126,0.032,0.067,0.078,0.027,0.278,0.43,kg CO2e per kg food produced
+Oatmeal,0.001,0,1.37,0.042,0.067,0.066,0.029,1.575,2.48,kg CO2e per kg food produced
+Olive Oil,-0.377,0,4.272,0.66,0.482,0.861,0.046,5.944,5.42,kg CO2e per kg food produced
+Onions & Leeks,0.005,0,0.211,0,0.095,0.045,0.039,0.395,0.5,kg CO2e per kg food produced
+Other Fruit,0.126,0,0.369,0.015,0.182,0.042,0.016,0.75,1.05,kg CO2e per kg food produced
+Other Pulses,0.033,0,1.089,0,0.096,0.353,0.039,1.61,1.79,kg CO2e per kg food produced
+Other Vegetables,0.001,0,0.174,0.06,0.164,0.041,0.015,0.455,0.53,kg CO2e per kg food produced
+Palm Oil,3.096,0,2.107,1.264,0.208,0.886,0.044,7.605,7.32,kg CO2e per kg food produced
+Peas,0,0,0.717,0,0.095,0.045,0.039,0.896,0.98,kg CO2e per kg food produced
+Pig Meat,1.535,2.94,1.694,0.284,0.343,0.296,0.19,7.282,12.31,kg CO2e per kg food produced
+Potatoes,-0.001,0,0.193,0,0.094,0.045,0.039,0.37,0.46,kg CO2e per kg food produced
+Poultry Meat,2.54,1.775,0.672,0.44,0.276,0.212,0.177,6.092,9.87,kg CO2e per kg food produced
+Rapeseed Oil,0.212,0,2.343,0.193,0.19,0.844,0.046,3.828,3.77,kg CO2e per kg food produced
+Rice,-0.022,0,3.553,0.065,0.096,0.084,0.063,3.839,4.45,kg CO2e per kg food produced
+Root Vegetables,0.013,0,0.154,0,0.114,0.045,0.039,0.365,0.43,kg CO2e per kg food produced
+Shrimps (farmed),0.206,2.51,8.379,0,0.206,0.334,0.219,11.854,26.87,kg CO2e per kg food produced
+Soybean Oil,3.096,0,1.519,0.311,0.299,0.849,0.043,6.117,6.32,kg CO2e per kg food produced
+Soymilk,0.18,0,0.093,0.163,0.11,0.098,0.27,0.914,0.98,kg CO2e per kg food produced
+Sunflower Oil,0.133,0,2.148,0.229,0.201,0.853,0.043,3.607,3.6,kg CO2e per kg food produced
+Tofu,0.958,0,0.495,0.794,0.177,0.177,0.27,2.871,3.16,kg CO2e per kg food produced
+Tomatoes,0.372,0,0.704,0.012,0.177,0.145,0.017,1.427,2.09,kg CO2e per kg food produced
+Wheat & Rye,0.1,0,0.847,0.217,0.129,0.09,0.058,1.441,1.57,kg CO2e per kg food produced
+Wine,-0.061,0,0.626,0.139,0.093,0.749,0.039,1.585,1.79,kg CO2e per kg food produced
