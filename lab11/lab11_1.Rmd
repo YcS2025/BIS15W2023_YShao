@@ -104,6 +104,7 @@ deserts %>%
 
 ```{r}
 deserts2 <- deserts %>% mutate(year=as_factor(year))
+deserts2
 ```
 
 ```{r}
