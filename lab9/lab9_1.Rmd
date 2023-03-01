@@ -118,12 +118,15 @@ ggplot(data=homerange,mapping = aes(x=log10.mass,y=log10.hra))+geom_point()+geom
 
 In big data sets with lots of overlapping values, over-plotting can be an issue. `geom_jitter()` is similar to `geom_point()` but it helps with over plotting by adding some random noise to the data and separating some of the individual points.
 ```{r}
-
+ggplot(data=homerange, mapping=aes(x=log10.mass, y=log10.hra))+
+  geom_jitter()
 ```
 
 To add a regression (best of fit) line, we just add another layer.
 ```{r}
-
+ggplot(data=homerange, mapping=aes(x=log10.mass, y=log10.hra))+
+  geom_point()+
+  geom_smooth(method=lm, se=T)
 ```
 
 ### Practice
