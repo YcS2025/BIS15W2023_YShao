@@ -56,7 +56,7 @@ server <- function(input, output, session) {
       theme_light(base_size=18) +
       labs(x=NULL, y=NULL, fill="Fill Variable")
   })
-  
+  session$onSessionEnded(stopApp)
 }
 
 shinyApp(ui, server)
@@ -272,7 +272,38 @@ wolves %>%
   ggplot(aes(x=sex, fill=sex))+
   geom_bar()+
   facet_wrap(~pop)
+?toJSON
+table(wolves$year)
 ```
+```{r}
+ui <- dashboardPage(
+  dashboardHeader(title = "Wolves sex distribution"),
+  dashboardSidebar(),
+  dashboardBody(
+    fluidRow(
+      box(title = "Plot Options", width = 3,
+      radioButtons("x", "Select Pop", choices = c("AK.PEN","Ban.JAS", "BC","DENALI", "ELLES","GTNP", "INT.AK","MEXICAN","MI", "MT","N.NWT","ONT","SE.AK","SNF","SS.NWT","YNP","YUCH"), 
+                       selected = "BC")               
+      ),
+      plotOutput("plot", width="600px", height="500px")
+      )
+    )
+  )
+server <- function(input, output, session) {
+  output$plot <- renderPlot({
+    wolves%>%
+      filter(sex!="NA") %>%
+      ggplot(aes_string(x="sex", fill=input$x)) +
+        geom_bar(position="dodge", alpha=0.8, color="pink") +
+        theme_light(base_size=16) +
+        labs(x=NULL, y=NULL, fill="Fill Variable")
+        })
+      session$onSessionEnded(stopApp)
+      }
+      
+shinyApp(ui, server)
+```
+
 
 ## Wrap-up  
 Please review the learning goals and be sure to use the code here as a reference when completing the homework.
