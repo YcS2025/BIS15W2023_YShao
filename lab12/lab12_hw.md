@@ -1,7 +1,7 @@
 ---
 title: "Lab 13 Homework"
 author: "Yuchen Shao"
-date: "2023-03-01"
+date: "2023-03-02"
 output:
   html_document:
     theme: spacelab
@@ -320,7 +320,7 @@ server <- function(input, output, session) {
       geom_bar(position = "dodge") +
       theme_light(base_size = 18) +
       theme(axis.text.x = element_text(angle = 60, hjust = 1))+
-      labs(x = "Pop", y = NULL)
+      labs(x = NULL, y = "NUM")
   })
   session$onSessionEnded(stopApp)
   
